@@ -612,46 +612,47 @@ function getGameScore(id) {
   return scoreCache[id] || null;
 }
 
-async function setGameScore(id, homeScore, awayScore, gameTime, gameField) {
-  scoreCache[id] = { homeScore, awayScore, gameTime: gameTime||'', gameField: gameField||'' };
+async function upsertGame(id, homeScore, awayScore, gameTime, gameField) {
+  // Update cache immediately
+  scoreCache[id] = {
+    homeScore: homeScore !== null ? homeScore : (scoreCache[id]?.homeScore ?? null),
+    awayScore: awayScore !== null ? awayScore : (scoreCache[id]?.awayScore ?? null),
+    gameTime: gameTime !== undefined ? gameTime : (scoreCache[id]?.gameTime || ''),
+    gameField: gameField !== undefined ? gameField : (scoreCache[id]?.gameField || '')
+  };
+  const cached = scoreCache[id];
+  const body = {
+    id,
+    home_score: (cached.homeScore !== null && cached.homeScore !== undefined) ? cached.homeScore : -1,
+    away_score: (cached.awayScore !== null && cached.awayScore !== undefined) ? cached.awayScore : -1,
+    game_time: cached.gameTime || null,
+    game_field: cached.gameField || null
+  };
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
       method: 'POST',
       headers: {
         'apikey': SUPABASE_KEY,
         'Authorization': `Bearer ${SUPABASE_KEY}`,
         'Content-Type': 'application/json',
-        'Prefer': 'resolution=merge-duplicates'
+        'Prefer': 'resolution=merge-duplicates,return=representation'
       },
-      body: JSON.stringify({ id, home_score: homeScore, away_score: awayScore, game_time: gameTime||null, game_field: gameField||null })
+      body: JSON.stringify(body)
     });
-  } catch(e) { console.error('Save score error:', e); }
+    if (!res.ok) {
+      const err = await res.text();
+      console.error('Save error:', err);
+      alert('Save failed: ' + err);
+    }
+  } catch(e) { console.error('Save error:', e); alert('Save failed - check connection'); }
+}
+
+async function setGameScore(id, homeScore, awayScore, gameTime, gameField) {
+  await upsertGame(id, homeScore, awayScore, gameTime, gameField);
 }
 
 async function saveTimeField(id, gameTime, gameField) {
-  const existing = scoreCache[id] || {};
-  scoreCache[id] = { ...existing, gameTime: gameTime||'', gameField: gameField||'' };
-  try {
-    // home_score/away_score are not null in DB so use -1 as placeholder when no score yet
-    const homeScore = existing.homeScore !== undefined && existing.homeScore !== null ? existing.homeScore : -1;
-    const awayScore = existing.awayScore !== undefined && existing.awayScore !== null ? existing.awayScore : -1;
-    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
-      method: 'POST',
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'resolution=merge-duplicates'
-      },
-      body: JSON.stringify({
-        id,
-        home_score: homeScore,
-        away_score: awayScore,
-        game_time: gameTime || null,
-        game_field: gameField || null
-      })
-    });
-  } catch(e) { console.error('Save time/field error:', e); }
+  await upsertGame(id, null, null, gameTime, gameField);
 }
 
 async function clearGameScore(id) {
