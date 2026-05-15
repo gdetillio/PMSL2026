@@ -713,11 +713,11 @@ function softball() {
 
 function renderGameCard(g) {
   const sc = getGameScore(g.id);
+  const hasRealScore = sc && sc.homeScore !== null && sc.homeScore !== undefined && sc.homeScore !== -1;
   const homeWin = hasRealScore && sc.homeScore > sc.awayScore;
   const awayWin = hasRealScore && sc.awayScore > sc.homeScore;
 
   let scoreHtml = '';
-  const hasRealScore = sc && sc.homeScore !== null && sc.homeScore !== undefined && sc.homeScore !== -1;
   if (hasRealScore) {
     scoreHtml = `<div class="score-display"><span class="score-num">${sc.homeScore}</span><span class="score-dash">—</span><span class="score-num">${sc.awayScore}</span></div>`;
   }
