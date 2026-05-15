@@ -593,12 +593,12 @@ async function loadAllScores() {
       headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
     });
     const rows = await res.json();
-    scoreCache = {};
     if (Array.isArray(rows)) {
+      // Merge into cache rather than replace, so pending saves aren't wiped
       rows.forEach(r => {
         scoreCache[r.id] = {
-          homeScore: r.home_score === -1 ? null : r.home_score,
-          awayScore: r.away_score === -1 ? null : r.away_score,
+          homeScore: (r.home_score === -1 || r.home_score === null) ? null : r.home_score,
+          awayScore: (r.away_score === -1 || r.away_score === null) ? null : r.away_score,
           gameTime: r.game_time || '',
           gameField: r.game_field || ''
         };
@@ -1109,6 +1109,8 @@ loadAllScores().then(() => {
   renderSchedule();
   // Poll for updates every 30 seconds so all viewers see live scores
   setInterval(async () => {
+    // Don't refresh while admin modal is open
+    if (document.getElementById('score-modal').classList.contains('open')) return;
     await loadAllScores();
     const activePage = document.querySelector('.page.active')?.id;
     if (activePage === 'page-schedule') renderSchedule();
