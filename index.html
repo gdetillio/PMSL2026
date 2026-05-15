@@ -672,7 +672,7 @@ function calcStandings(division) {
 
   ALL_GAMES.filter(g => g.division === division && !g.bye).forEach(g => {
     const sc = getGameScore(g.id);
-    if (!sc) return;
+    if (!sc || sc.homeScore === null || sc.homeScore === -1) return;
     const {homeScore:hs, awayScore:as} = sc;
     stats[g.home].gp++; stats[g.away].gp++;
     stats[g.home].rs += hs; stats[g.home].ra += as;
@@ -713,11 +713,12 @@ function softball() {
 
 function renderGameCard(g) {
   const sc = getGameScore(g.id);
-  const homeWin = sc && sc.homeScore > sc.awayScore;
-  const awayWin = sc && sc.awayScore > sc.homeScore;
+  const homeWin = hasRealScore && sc.homeScore > sc.awayScore;
+  const awayWin = hasRealScore && sc.awayScore > sc.homeScore;
 
   let scoreHtml = '';
-  if (sc) {
+  const hasRealScore = sc && sc.homeScore !== null && sc.homeScore !== undefined && sc.homeScore !== -1;
+  if (hasRealScore) {
     scoreHtml = `<div class="score-display"><span class="score-num">${sc.homeScore}</span><span class="score-dash">—</span><span class="score-num">${sc.awayScore}</span></div>`;
   }
 
@@ -729,7 +730,7 @@ function renderGameCard(g) {
         <div class="team-name">${g.home}</div>
       </div>
       <div class="vs-block">
-        ${sc ? scoreHtml : `<div class="vs-text">VS</div><div class="vs-dots"><div class="vs-dot"></div><div class="vs-dot"></div><div class="vs-dot"></div></div>`}
+        ${hasRealScore ? scoreHtml : `<div class="vs-text">VS</div><div class="vs-dots"><div class="vs-dot"></div><div class="vs-dot"></div><div class="vs-dot"></div></div>`}
       </div>
       <div class="team-block ${awayWin?'winner-highlight':''}">
         ${awayWin ? softball() : ''}
@@ -998,9 +999,10 @@ function renderAdminGames() {
     games.forEach(g => {
       const sc = getGameScore(g.id);
       const dayLabel = g.day === 'FRI' ? 'FRI (Competitive)' : 'SUN (Friendly)';
-      const scoreStr = sc ? `${sc.homeScore} – ${sc.awayScore}` : 'Click to enter score';
+      const hasScore = sc && sc.homeScore !== null && sc.homeScore !== -1;
+      const scoreStr = hasScore ? `${sc.homeScore} – ${sc.awayScore}` : 'Click to enter score';
       html += `
-      <div class="admin-game-row ${sc?'played':''}" onclick="openModal('${g.id}')">
+      <div class="admin-game-row ${hasScore?'played':''}" onclick="openModal('${g.id}')">
         <div class="admin-team">${g.home}</div>
         <div class="admin-vs">VS</div>
         <div class="admin-team">${g.away}</div>
