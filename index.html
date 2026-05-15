@@ -381,8 +381,10 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 
     <!-- ADMIN PANEL -->
     <div class="admin-panel" id="admin-panel">
-      <button class="logout-btn" onclick="doLogout()">Log Out</button>
-      <div style="clear:both;"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <div id="admin-level-badge" style="font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 12px;"></div>
+        <button class="logout-btn" style="float:none;margin:0;" onclick="doLogout()">Log Out</button>
+      </div>
       <div id="admin-games-list"></div>
     </div>
   </div>
@@ -595,8 +597,8 @@ async function loadAllScores() {
     if (Array.isArray(rows)) {
       rows.forEach(r => {
         scoreCache[r.id] = {
-          homeScore: r.home_score,
-          awayScore: r.away_score,
+          homeScore: r.home_score === -1 ? null : r.home_score,
+          awayScore: r.away_score === -1 ? null : r.away_score,
           gameTime: r.game_time || '',
           gameField: r.game_field || ''
         };
@@ -630,6 +632,9 @@ async function saveTimeField(id, gameTime, gameField) {
   const existing = scoreCache[id] || {};
   scoreCache[id] = { ...existing, gameTime: gameTime||'', gameField: gameField||'' };
   try {
+    // home_score/away_score are not null in DB so use -1 as placeholder when no score yet
+    const homeScore = existing.homeScore !== undefined && existing.homeScore !== null ? existing.homeScore : -1;
+    const awayScore = existing.awayScore !== undefined && existing.awayScore !== null ? existing.awayScore : -1;
     await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
       method: 'POST',
       headers: {
@@ -640,8 +645,8 @@ async function saveTimeField(id, gameTime, gameField) {
       },
       body: JSON.stringify({
         id,
-        home_score: existing.homeScore ?? null,
-        away_score: existing.awayScore ?? null,
+        home_score: homeScore,
+        away_score: awayScore,
         game_time: gameTime || null,
         game_field: gameField || null
       })
@@ -973,6 +978,12 @@ function renderAdmin() {
 }
 
 function renderAdminGames() {
+  const badge = document.getElementById('admin-level-badge');
+  if (badge) {
+    badge.textContent = isAdmin ? 'LEAGUE ADMIN — Full Access' : 'COACH — Score Entry Only';
+    badge.style.background = isAdmin ? '#CC0000' : '#0a0a0a';
+    badge.style.color = 'white';
+  }
   const weeks = [1,2,3,4,5,6,7,8,9];
   let html = '';
 
@@ -1028,9 +1039,16 @@ function openModal(gameId) {
   document.getElementById('input-field').value = sc ? sc.gameField || '' : '';
 
   // Show time/field only for admin
-  document.getElementById('time-field-section').style.display = isAdmin ? 'block' : 'none';
+  const tfSection = document.getElementById('time-field-section');
+  tfSection.style.display = isAdmin ? 'block' : 'none';
+  tfSection.style.visibility = isAdmin ? 'visible' : 'hidden';
+  tfSection.style.height = isAdmin ? 'auto' : '0';
+  tfSection.style.margin = isAdmin ? '' : '0';
   document.getElementById('score-modal').classList.add('open');
-  isAdmin ? document.getElementById('input-time').focus() : document.getElementById('input-home').focus();
+  setTimeout(() => {
+    if (isAdmin) document.getElementById('input-time').focus();
+    else document.getElementById('input-home').focus();
+  }, 50);
 }
 
 function closeModal() {
