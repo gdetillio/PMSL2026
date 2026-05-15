@@ -211,6 +211,12 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .score-input:focus{border-color:var(--red);}
 .score-vs{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);text-align:center;}
 .modal-actions{display:flex;gap:10px;}
+.time-field-inputs{margin-bottom:16px;}
+.time-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.tf-group{display:flex;flex-direction:column;gap:4px;}
+.tf-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gray);}
+.tf-input{padding:10px 12px;border:2px solid var(--light-gray);font-family:'Oswald',sans-serif;font-size:16px;outline:none;width:100%;}
+.tf-input:focus{border-color:var(--red);}
 .btn-save{flex:1;padding:12px;background:var(--red);color:var(--white);border:none;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;cursor:pointer;}
 .btn-save:hover{background:var(--red-dark);}
 .btn-cancel{padding:12px 16px;background:var(--white);color:var(--black);border:2px solid var(--black);font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;cursor:pointer;}
@@ -369,6 +375,7 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
         <input type="password" class="login-input" id="pwd-input" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
         <button class="login-btn" onclick="doLogin()">Enter</button>
         <div class="login-error" id="login-error"></div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--gray);margin-top:12px;font-style:italic;">Coaches: enter your team password to submit scores.<br>League admin: enter your password for full access.</div>
       </div>
     </div>
 
@@ -455,7 +462,7 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 <!-- SCORE MODAL -->
 <div class="modal-overlay" id="score-modal">
   <div class="modal">
-    <div class="modal-title" id="modal-title">Enter Score</div>
+    <div class="modal-title" id="modal-title">Game Details</div>
     <div class="modal-subtitle" id="modal-subtitle"></div>
     <div class="score-inputs">
       <div>
@@ -466,6 +473,18 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
       <div>
         <div class="score-team-label" id="modal-away"></div>
         <input type="number" class="score-input" id="input-away" min="0" placeholder="0">
+      </div>
+    </div>
+    <div class="time-field-inputs" id="time-field-section">
+      <div class="time-field-row">
+        <div class="tf-group">
+          <div class="tf-label">Game Time</div>
+          <input type="text" class="tf-input" id="input-time" placeholder="e.g. 6:30 PM">
+        </div>
+        <div class="tf-group">
+          <div class="tf-label">Field</div>
+          <input type="text" class="tf-input" id="input-field" placeholder="e.g. Field 3">
+        </div>
       </div>
     </div>
     <div class="modal-actions">
@@ -484,7 +503,9 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 // ── DATA ──────────────────────────────────────────────────────────────────────
 const FRIENDLY = 'friendly';
 const COMPETITIVE = 'competitive';
-const PASSWORD = '2026';
+const PASSWORD_ADMIN = 'gina';
+const PASSWORD_COACH = '2026';
+let isAdmin = false;
 
 const ALL_GAMES = [
   // WEEK 1
@@ -572,7 +593,14 @@ async function loadAllScores() {
     const rows = await res.json();
     scoreCache = {};
     if (Array.isArray(rows)) {
-      rows.forEach(r => { scoreCache[r.id] = { homeScore: r.home_score, awayScore: r.away_score }; });
+      rows.forEach(r => {
+        scoreCache[r.id] = {
+          homeScore: r.home_score,
+          awayScore: r.away_score,
+          gameTime: r.game_time || '',
+          gameField: r.game_field || ''
+        };
+      });
     }
     cacheLoaded = true;
   } catch(e) { console.error('Load scores error:', e); }
@@ -582,8 +610,8 @@ function getGameScore(id) {
   return scoreCache[id] || null;
 }
 
-async function setGameScore(id, homeScore, awayScore) {
-  scoreCache[id] = { homeScore, awayScore };
+async function setGameScore(id, homeScore, awayScore, gameTime, gameField) {
+  scoreCache[id] = { homeScore, awayScore, gameTime: gameTime||'', gameField: gameField||'' };
   try {
     await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
       method: 'POST',
@@ -593,9 +621,32 @@ async function setGameScore(id, homeScore, awayScore) {
         'Content-Type': 'application/json',
         'Prefer': 'resolution=merge-duplicates'
       },
-      body: JSON.stringify({ id, home_score: homeScore, away_score: awayScore })
+      body: JSON.stringify({ id, home_score: homeScore, away_score: awayScore, game_time: gameTime||null, game_field: gameField||null })
     });
   } catch(e) { console.error('Save score error:', e); }
+}
+
+async function saveTimeField(id, gameTime, gameField) {
+  const existing = scoreCache[id] || {};
+  scoreCache[id] = { ...existing, gameTime: gameTime||'', gameField: gameField||'' };
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'resolution=merge-duplicates'
+      },
+      body: JSON.stringify({
+        id,
+        home_score: existing.homeScore ?? null,
+        away_score: existing.awayScore ?? null,
+        game_time: gameTime || null,
+        game_field: gameField || null
+      })
+    });
+  } catch(e) { console.error('Save time/field error:', e); }
 }
 
 async function clearGameScore(id) {
@@ -681,8 +732,8 @@ function renderGameCard(g) {
       </div>
     </div>
     <div class="game-footer">
-      <div class="game-footer-cell"><div class="footer-label">Time</div><div class="footer-value"></div></div>
-      <div class="game-footer-cell"><div class="footer-label">Field</div><div class="footer-value"></div></div>
+      <div class="game-footer-cell"><div class="footer-label">Time</div><div class="footer-value">${sc && sc.gameTime ? sc.gameTime : ''}</div></div>
+      <div class="game-footer-cell"><div class="footer-label">Field</div><div class="footer-value">${sc && sc.gameField ? sc.gameField : ''}</div></div>
     </div>
   </div>`;
 }
@@ -891,8 +942,15 @@ let currentGameId = null;
 
 function doLogin() {
   const val = document.getElementById('pwd-input').value;
-  if (val === PASSWORD) {
+  if (val === PASSWORD_ADMIN) {
     isLoggedIn = true;
+    isAdmin = true;
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('admin-panel').classList.add('visible');
+    renderAdminGames();
+  } else if (val === PASSWORD_COACH) {
+    isLoggedIn = true;
+    isAdmin = false;
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('admin-panel').classList.add('visible');
     renderAdminGames();
@@ -903,6 +961,7 @@ function doLogin() {
 
 function doLogout() {
   isLoggedIn = false;
+  isAdmin = false;
   document.getElementById('login-section').style.display = 'block';
   document.getElementById('admin-panel').classList.remove('visible');
   document.getElementById('pwd-input').value = '';
@@ -934,7 +993,10 @@ function renderAdminGames() {
         <div class="admin-team">${g.home}</div>
         <div class="admin-vs">VS</div>
         <div class="admin-team">${g.away}</div>
-        <div class="admin-score-display ${sc?'entered':''}">${scoreStr}</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <div class="admin-score-display ${sc?'entered':''}">${scoreStr}</div>
+          ${sc && sc.gameTime ? `<div style="font-family:Oswald,sans-serif;font-size:11px;color:var(--gray);letter-spacing:1px;">${sc.gameTime}${sc.gameField ? ' &bull; '+sc.gameField : ''}</div>` : ''}
+        </div>
       </div>`;
     });
 
@@ -954,17 +1016,21 @@ function openModal(gameId) {
   if (!g) return;
   currentGameId = gameId;
 
-  document.getElementById('modal-title').textContent = 'Enter Score';
-  document.getElementById('modal-subtitle').textContent = `Week ${g.week} &bull; ${g.date}`;
+  document.getElementById('modal-title').textContent = 'Game Details';
+  document.getElementById('modal-subtitle').textContent = `Week ${g.week} • ${g.date}`;
   document.getElementById('modal-home').textContent = g.home;
   document.getElementById('modal-away').textContent = g.away;
 
   const sc = getGameScore(gameId);
-  document.getElementById('input-home').value = sc ? sc.homeScore : '';
-  document.getElementById('input-away').value = sc ? sc.awayScore : '';
+  document.getElementById('input-home').value = sc && sc.homeScore !== undefined && sc.homeScore !== null ? sc.homeScore : '';
+  document.getElementById('input-away').value = sc && sc.awayScore !== undefined && sc.awayScore !== null ? sc.awayScore : '';
+  document.getElementById('input-time').value = sc ? sc.gameTime || '' : '';
+  document.getElementById('input-field').value = sc ? sc.gameField || '' : '';
 
+  // Show time/field only for admin
+  document.getElementById('time-field-section').style.display = isAdmin ? 'block' : 'none';
   document.getElementById('score-modal').classList.add('open');
-  document.getElementById('input-home').focus();
+  isAdmin ? document.getElementById('input-time').focus() : document.getElementById('input-home').focus();
 }
 
 function closeModal() {
@@ -974,10 +1040,29 @@ function closeModal() {
 
 async function saveScore() {
   if (!currentGameId) return;
-  const hs = parseInt(document.getElementById('input-home').value);
-  const as = parseInt(document.getElementById('input-away').value);
-  if (isNaN(hs) || isNaN(as)) { alert('Please enter scores for both teams.'); return; }
-  await setGameScore(currentGameId, hs, as);
+  const homeVal = document.getElementById('input-home').value.trim();
+  const awayVal = document.getElementById('input-away').value.trim();
+  const gameTime = document.getElementById('input-time').value.trim();
+  const gameField = document.getElementById('input-field').value.trim();
+
+  // Allow saving time/field even without scores
+  const hs = homeVal !== '' ? parseInt(homeVal) : null;
+  const as = awayVal !== '' ? parseInt(awayVal) : null;
+
+  if ((homeVal !== '' && isNaN(hs)) || (awayVal !== '' && isNaN(as))) {
+    alert('Please enter valid scores.');
+    return;
+  }
+  if ((homeVal !== '' && awayVal === '') || (homeVal === '' && awayVal !== '')) {
+    alert('Please enter scores for both teams.');
+    return;
+  }
+
+  if (hs !== null && as !== null) {
+    await setGameScore(currentGameId, hs, as, gameTime, gameField);
+  } else {
+    await saveTimeField(currentGameId, gameTime, gameField);
+  }
   closeModal();
   renderAdminGames();
   renderSchedule();
