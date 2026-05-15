@@ -1,1 +1,1101 @@
-# PMSL2026
+[index (4).html](https://github.com/user-attachments/files/27814984/index.4.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plainedge Moms Softball League 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --red:#CC0000;--red-dark:#990000;--black:#0a0a0a;--white:#ffffff;
+  --off-white:#f5f5f0;--gray:#888;--light-gray:#e8e8e8;--mid-gray:#ccc;
+}
+body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color:var(--black);min-height:100vh;}
+
+/* NAV */
+.top-nav{background:var(--black);position:sticky;top:0;z-index:100;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);letter-spacing:2px;padding:14px 0;cursor:pointer;}
+.nav-logo span{color:var(--red);}
+.nav-links{display:flex;gap:4px;}
+.nav-btn{font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);padding:14px 16px;cursor:pointer;border:none;background:none;text-transform:uppercase;transition:color .2s;}
+.nav-btn:hover,.nav-btn.active{color:var(--white);}
+.nav-btn.active{border-bottom:3px solid var(--red);}
+.nav-admin{color:var(--red) !important;}
+
+/* PAGES */
+.page{display:none;}.page.active{display:block;}
+
+/* HEADER */
+.site-header{background:var(--black);padding:0;position:relative;overflow:hidden;}
+.header-stripe{background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 40px,var(--red-dark) 40px,var(--red-dark) 80px);height:6px;}
+.header-inner{max-width:1100px;margin:0 auto;padding:48px 24px 40px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.softball-row{display:flex;align-items:center;gap:16px;margin-bottom:4px;}
+.softball-svg{width:44px;height:44px;flex-shrink:0;animation:spin-slow 8s linear infinite;}
+@keyframes spin-slow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.league-eyebrow{font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;letter-spacing:6px;color:var(--red);}
+.main-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,110px);line-height:.88;color:var(--white);text-align:center;letter-spacing:2px;}
+.main-title span{color:var(--red);display:block;}
+.season-dates{font-family:'Oswald',sans-serif;font-size:14px;font-weight:400;color:var(--gray);letter-spacing:3px;margin-top:8px;}
+.division-badges{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;justify-content:center;}
+.div-badge{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;padding:6px 18px;border:1.5px solid;text-transform:uppercase;}
+.div-badge.friendly{border-color:var(--white);color:var(--white);}
+.div-badge.competitive{border-color:var(--red);color:var(--red);}
+
+/* CONTAINER */
+.container{max-width:1100px;margin:0 auto;padding:48px 24px;}
+
+/* WEEK BLOCKS */
+.week-block{margin-bottom:8px;}
+.week-header{display:flex;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;background:var(--white);border:1.5px solid var(--light-gray);transition:border-color .2s;user-select:none;}
+.week-header:hover{border-color:var(--red);}
+.week-header.open{border-color:var(--black);border-bottom:none;}
+.week-num{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--light-gray);min-width:48px;}
+.week-title-block{border-left:4px solid var(--red);padding-left:14px;flex:1;}
+.week-label{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--black);letter-spacing:1px;}
+.week-sublabel{font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;color:var(--gray);margin-top:2px;}
+.week-chevron{font-size:20px;color:var(--gray);transition:transform .25s;margin-left:auto;}
+.week-header.open .week-chevron{transform:rotate(180deg);}
+.week-score-preview{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
+.week-score-pip{width:8px;height:8px;border-radius:50%;background:var(--red);}
+.week-body{display:none;border:1.5px solid var(--black);border-top:none;padding:14px;background:var(--off-white);}
+.week-body.open{display:block;}
+.days-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.days-row.single{grid-template-columns:1fr;}
+
+/* DAY PANEL */
+.day-panel{background:var(--white);border-top:5px solid var(--black);overflow:hidden;}
+.day-panel.friday{border-top-color:var(--red);}
+.day-header{display:flex;align-items:stretch;}
+.day-tag{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;padding:10px 12px;display:flex;align-items:center;writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);min-width:34px;}
+.friday .day-tag{background:var(--red);color:var(--white);}
+.sunday .day-tag{background:var(--black);color:var(--white);}
+.day-date-block{padding:10px 14px;flex:1;border-bottom:1px solid var(--light-gray);}
+.day-name{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gray);}
+.day-date{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--black);}
+.friday .day-date{color:var(--red);}
+.division-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gray);padding:5px 14px;background:var(--off-white);border-bottom:1px solid var(--light-gray);}
+.games-list{padding:10px;display:flex;flex-direction:column;gap:8px;}
+
+/* GAME CARD */
+.game-card{border:1.5px solid var(--light-gray);overflow:hidden;}
+.game-main{display:grid;grid-template-columns:1fr auto 1fr;}
+.team-block{padding:10px 10px;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:64px;justify-content:center;background:var(--white);}
+.team-name{font-family:'Bebas Neue',sans-serif;font-size:16px;line-height:1.1;color:var(--black);letter-spacing:.5px;}
+.vs-block{background:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 8px;min-height:64px;}
+.vs-text{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);line-height:1;}
+.vs-dots{display:flex;gap:2px;margin-top:3px;}
+.vs-dot{width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%;}
+.game-footer{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--light-gray);}
+.game-footer-cell{padding:5px 8px;display:flex;flex-direction:column;gap:1px;}
+.game-footer-cell:first-child{border-right:1px solid var(--light-gray);}
+.footer-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--gray);}
+.footer-value{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--black);min-height:17px;border-bottom:1px solid var(--light-gray);padding-bottom:1px;}
+
+/* SCORE DISPLAY */
+.score-display{display:flex;align-items:center;justify-content:center;gap:6px;padding:4px 8px;background:var(--black);}
+.score-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);line-height:1;}
+.score-dash{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gray);}
+.score-final{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--red);margin-top:1px;}
+.winner-highlight{background:var(--off-white);}
+.winner-highlight .team-name{color:var(--red);}
+
+/* BYE ROW */
+.bye-row{margin:6px 10px;padding:7px 10px;background:var(--off-white);border-left:3px solid var(--light-gray);display:flex;align-items:center;gap:8px;}
+.bye-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gray);}
+.bye-team{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gray);letter-spacing:1px;}
+
+/* WEEK DIVIDER */
+.week-divider{height:1px;background:repeating-linear-gradient(90deg,var(--light-gray) 0,var(--light-gray) 8px,transparent 8px,transparent 16px);margin-bottom:48px;}
+
+/* SKIP NOTICE */
+.skip-notice{background:var(--black);color:var(--white);text-align:center;padding:28px 24px;margin-bottom:48px;position:relative;overflow:hidden;}
+.skip-notice::before,.skip-notice::after{content:'';position:absolute;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 20px,transparent 20px,transparent 40px);}
+.skip-notice::before{top:0;}.skip-notice::after{bottom:0;}
+.skip-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;color:var(--white);}
+.skip-subtitle{font-family:'Oswald',sans-serif;font-size:12px;font-weight:400;letter-spacing:3px;color:var(--red);margin-top:4px;}
+
+/* PLAYOFFS */
+.section-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;color:var(--red);margin-bottom:6px;}
+.section-heading{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--black);margin-bottom:28px;border-bottom:4px solid var(--red);padding-bottom:14px;}
+.playoffs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px;}
+.playoff-card{border:2px solid var(--black);overflow:hidden;}
+.playoff-card-header{padding:10px 14px;display:flex;flex-direction:column;}
+.playoff-card-header.red{background:var(--red);}
+.playoff-card-header.black{background:var(--black);}
+.playoff-event{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;line-height:1;}
+.playoff-date{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.6);margin-top:2px;}
+.playoff-matchups{padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+.playoff-matchup{display:flex;align-items:center;gap:8px;}
+.playoff-seed{font-family:'Bebas Neue',sans-serif;font-size:11px;padding:2px 6px;min-width:26px;text-align:center;flex-shrink:0;color:var(--white);}
+.playoff-seed.red{background:var(--red);}
+.playoff-seed.black{background:var(--black);}
+.playoff-vs-text{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;color:var(--gray);letter-spacing:1px;}
+
+/* CHAMP BANNER */
+.champ-banner{background:var(--red);padding:36px 24px;text-align:center;position:relative;overflow:hidden;}
+.champ-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.05) 10px,rgba(0,0,0,.05) 20px);}
+.champ-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;color:rgba(255,255,255,.7);position:relative;}
+.champ-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);color:var(--white);letter-spacing:2px;line-height:1;position:relative;margin:6px 0;}
+.champ-date{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:3px;color:rgba(255,255,255,.8);position:relative;}
+.champ-games{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;position:relative;}
+.champ-game{background:rgba(0,0,0,.3);padding:14px;text-align:center;}
+.champ-game-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.6);margin-bottom:5px;}
+.champ-game-matchup{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;line-height:1.2;}
+
+/* ── STANDINGS PAGE ── */
+.standings-container{max-width:900px;margin:0 auto;padding:48px 24px;}
+.standings-header{background:var(--black);padding:36px 24px;margin-bottom:32px;text-align:center;}
+.standings-header h1{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--white);letter-spacing:2px;line-height:1;}
+.standings-header p{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:3px;color:var(--red);margin-top:6px;}
+.standings-division{margin-bottom:40px;}
+.div-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.div-heading-bar{width:4px;height:36px;background:var(--red);flex-shrink:0;}
+.div-heading-bar.black-bar{background:var(--black);}
+.div-heading-text{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:var(--black);}
+.standings-table{width:100%;border-collapse:collapse;background:var(--white);}
+.standings-table th{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;padding:10px 14px;text-align:left;background:var(--black);color:var(--white);}
+.standings-table th.center{text-align:center;}
+.standings-table td{font-family:'Oswald',sans-serif;font-size:15px;padding:12px 14px;border-bottom:1px solid var(--light-gray);}
+.standings-table td.center{text-align:center;}
+.standings-table tr:hover td{background:var(--off-white);}
+.rank-cell{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--light-gray);width:40px;}
+.rank-cell.top{color:var(--red);}
+.team-cell{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.5px;}
+.playoff-spot{background:rgba(204,0,0,.08);border-left:3px solid var(--red);}
+.playoff-spot .rank-cell{color:var(--red);}
+.win-cell{font-weight:700;color:var(--black);}
+.record-cell{color:var(--gray);font-size:13px;}
+.rd-pos{color:var(--black);}
+.rd-neg{color:var(--red);}
+.no-games-msg{font-family:'Oswald',sans-serif;font-size:13px;color:var(--gray);letter-spacing:2px;padding:24px;text-align:center;background:var(--white);}
+.standings-note{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--gray);margin-top:8px;font-style:italic;}
+.playoff-legend{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gray);}
+.legend-box{width:12px;height:12px;background:rgba(204,0,0,.08);border-left:3px solid var(--red);flex-shrink:0;}
+
+/* ── ADMIN PAGE ── */
+.admin-container{max-width:800px;margin:0 auto;padding:48px 24px;}
+.admin-header{background:var(--black);padding:28px 24px;margin-bottom:28px;}
+.admin-header h1{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--white);letter-spacing:2px;}
+.admin-header p{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:3px;color:var(--red);margin-top:4px;}
+.login-box{background:var(--white);border:2px solid var(--black);padding:32px;text-align:center;max-width:400px;margin:0 auto;}
+.login-box h2{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;margin-bottom:16px;}
+.login-input{width:100%;padding:12px 16px;border:2px solid var(--light-gray);font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:2px;margin-bottom:12px;outline:none;}
+.login-input:focus{border-color:var(--red);}
+.login-btn{width:100%;padding:12px;background:var(--red);color:var(--white);border:none;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;cursor:pointer;}
+.login-btn:hover{background:var(--red-dark);}
+.login-error{color:var(--red);font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1px;margin-top:8px;}
+.admin-panel{display:none;}
+.admin-panel.visible{display:block;}
+.admin-week{margin-bottom:28px;}
+.admin-week-label{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:var(--black);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--light-gray);}
+.admin-game-row{background:var(--white);border:1.5px solid var(--light-gray);padding:14px 16px;margin-bottom:8px;display:grid;grid-template-columns:1fr auto 1fr auto;align-items:center;gap:12px;cursor:pointer;transition:border-color .2s;}
+.admin-game-row:hover{border-color:var(--red);}
+.admin-game-row.played{border-color:var(--black);background:var(--off-white);}
+.admin-team{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.5px;}
+.admin-vs{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--red);}
+.admin-score-display{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gray);}
+.admin-score-display.entered{color:var(--black);}
+.admin-bye-row{padding:8px 14px;font-family:'Oswald',sans-serif;font-size:12px;color:var(--gray);letter-spacing:2px;background:var(--off-white);border:1.5px solid var(--light-gray);margin-bottom:8px;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--white);width:90%;max-width:460px;padding:28px;position:relative;}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;margin-bottom:4px;}
+.modal-subtitle{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gray);margin-bottom:20px;}
+.score-inputs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-bottom:20px;}
+.score-team-label{font-family:'Bebas Neue',sans-serif;font-size:18px;text-align:center;line-height:1.2;margin-bottom:8px;}
+.score-input{width:100%;padding:14px;border:2px solid var(--light-gray);font-family:'Bebas Neue',sans-serif;font-size:36px;text-align:center;outline:none;}
+.score-input:focus{border-color:var(--red);}
+.score-vs{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);text-align:center;}
+.modal-actions{display:flex;gap:10px;}
+.time-field-inputs{margin-bottom:16px;}
+.time-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.tf-group{display:flex;flex-direction:column;gap:4px;}
+.tf-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gray);}
+.tf-input{padding:10px 12px;border:2px solid var(--light-gray);font-family:'Oswald',sans-serif;font-size:16px;outline:none;width:100%;}
+.tf-input:focus{border-color:var(--red);}
+.btn-save{flex:1;padding:12px;background:var(--red);color:var(--white);border:none;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;cursor:pointer;}
+.btn-save:hover{background:var(--red-dark);}
+.btn-cancel{padding:12px 16px;background:var(--white);color:var(--black);border:2px solid var(--black);font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;cursor:pointer;}
+.btn-clear{padding:12px 16px;background:var(--white);color:var(--gray);border:2px solid var(--light-gray);font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;cursor:pointer;}
+.logout-btn{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gray);border:1px solid var(--light-gray);padding:6px 14px;cursor:pointer;background:none;float:right;margin-bottom:16px;}
+
+/* ── RULES PAGE ── */
+.rules-section{margin-bottom:32px;}
+.rules-section-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--black);padding-bottom:8px;border-bottom:3px solid var(--red);margin-bottom:12px;}
+.rule-item{font-family:'Barlow Condensed',sans-serif;font-size:16px;color:#333;padding:10px 14px;border-bottom:1px solid var(--light-gray);line-height:1.5;}
+.rule-item:last-child{border-bottom:none;}
+.rule-item:nth-child(even){background:var(--off-white);}
+.rule-label{font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;color:var(--black);margin-right:6px;}
+.rules-spirit{background:var(--black);padding:32px;text-align:center;margin-top:8px;}
+.rules-spirit-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--red);margin-bottom:12px;}
+.rules-spirit-body{font-family:'Barlow Condensed',sans-serif;font-size:17px;color:rgba(255,255,255,.8);line-height:1.6;font-style:italic;max-width:600px;margin:0 auto;}
+
+/* FOOTER */
+.site-footer{background:var(--black);padding:20px 24px;text-align:center;}
+.footer-text{font-family:'Oswald',sans-serif;font-size:11px;font-weight:400;letter-spacing:3px;color:var(--gray);}
+.footer-heart{color:var(--red);}
+
+@media(max-width:700px){
+  .days-row{grid-template-columns:1fr;}
+  .playoffs-grid{grid-template-columns:1fr;}
+  .champ-games{grid-template-columns:1fr;}
+  .admin-game-row{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;}
+}
+@media print{
+  .top-nav,.site-footer{display:none;}
+  .week-block{page-break-inside:avoid;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('schedule')">PMSL <span>2026</span></div>
+    <div class="nav-links">
+      <button class="nav-btn active" onclick="showPage('schedule')" id="nav-schedule">Schedule</button>
+      <button class="nav-btn" onclick="showPage('standings')" id="nav-standings">Standings</button>
+      <button class="nav-btn" onclick="showPage('rules')" id="nav-rules">Rules</button>
+      <button class="nav-btn nav-admin" onclick="showPage('admin')" id="nav-admin">⚙ Scores</button>
+    </div>
+  </div>
+</nav>
+
+<!-- SCHEDULE PAGE -->
+<div class="page active" id="page-schedule">
+  <header class="site-header">
+    <div class="header-stripe"></div>
+    <div class="header-inner">
+      <div class="softball-row">
+        <svg class="softball-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ballgrad" cx="38%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fffef0"/>
+      <stop offset="60%" stop-color="#f5f0d0"/>
+      <stop offset="100%" stop-color="#e8e0b0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="47" fill="url(#ballgrad)" stroke="#d4c97a" stroke-width="1.5"/>
+  <!-- Left stitch curve -->
+  <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+  <!-- Right stitch curve -->
+  <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+  <!-- Left stitch marks -->
+  <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="20" y1="50" x2="14" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <!-- Right stitch marks -->
+  <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="50" x2="86" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="59" x2="86" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="77" y1="68" x2="83" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+</svg>
+        <div class="league-eyebrow">2026 Season</div>
+        <svg class="softball-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ballgrad" cx="38%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fffef0"/>
+      <stop offset="60%" stop-color="#f5f0d0"/>
+      <stop offset="100%" stop-color="#e8e0b0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="47" fill="url(#ballgrad)" stroke="#d4c97a" stroke-width="1.5"/>
+  <!-- Left stitch curve -->
+  <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+  <!-- Right stitch curve -->
+  <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+  <!-- Left stitch marks -->
+  <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="20" y1="50" x2="14" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <!-- Right stitch marks -->
+  <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="50" x2="86" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="59" x2="86" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="77" y1="68" x2="83" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+</svg>
+      </div>
+      <h1 class="main-title">PLAINEDGE<span>MOMS SOFTBALL</span>LEAGUE</h1>
+      <p class="season-dates">MAY 29 &mdash; AUGUST 14, 2026 &bull; LONG ISLAND, NY</p>
+      <div class="division-badges">
+        <div class="div-badge friendly">Friendly Division &bull; 10 Teams</div>
+        <div class="div-badge competitive">Competitive Division &bull; 5 Teams</div>
+      </div>
+    </div>
+    <div class="header-stripe"></div>
+  </header>
+  <div class="container" id="schedule-container"></div>
+</div>
+
+<!-- STANDINGS PAGE -->
+<div class="page" id="page-standings">
+  <div class="standings-header">
+    <div class="header-stripe"></div>
+    <br>
+    <h1>League Standings</h1>
+    <p>Plainedge Moms Softball League &bull; 2026</p>
+    <br>
+    <div class="header-stripe"></div>
+  </div>
+  <div class="standings-container" id="standings-container"></div>
+</div>
+
+<!-- ADMIN PAGE -->
+<div class="page" id="page-admin">
+  <div class="admin-container">
+    <div class="admin-header">
+      <h1>Score Entry</h1>
+      <p>Plainedge Moms Softball League &bull; 2026</p>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="login-section">
+      <div class="login-box">
+        <h2>Enter Password</h2>
+        <input type="password" class="login-input" id="pwd-input" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
+        <button class="login-btn" onclick="doLogin()">Enter</button>
+        <div class="login-error" id="login-error"></div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--gray);margin-top:12px;font-style:italic;">Coaches: enter your team password to submit scores.<br>League admin: enter your password for full access.</div>
+      </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div class="admin-panel" id="admin-panel">
+      <button class="logout-btn" onclick="doLogout()">Log Out</button>
+      <div style="clear:both;"></div>
+      <div id="admin-games-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- RULES PAGE -->
+<div class="page" id="page-rules">
+  <div class="standings-header">
+    <div class="header-stripe"></div>
+    <br>
+    <h1>League Rules</h1>
+    <p>Plainedge Moms Softball League &bull; 2026</p>
+    <br>
+    <div class="header-stripe"></div>
+  </div>
+  <div class="standings-container">
+
+    <div class="rules-section">
+      <div class="rules-section-title">General Rules</div>
+      <div class="rule-item"><span class="rule-label">Game Length</span> Games are 1.5 hours or 6 innings, whichever comes first. No extra innings — games may end in a tie.</div>
+      <div class="rule-item"><span class="rule-label">Home &amp; Away</span> Home and away teams are determined by a coin flip before each game.</div>
+      <div class="rule-item"><span class="rule-label">Ball</span> All games will use a 12" softball.</div>
+      <div class="rule-item"><span class="rule-label">Catcher Equipment</span> Catchers must wear a mask at minimum.</div>
+      <div class="rule-item"><span class="rule-label">Bats</span> Softball bats only. Baseball bats are strictly prohibited — no exceptions.</div>
+    </div>
+
+    <div class="rules-section">
+      <div class="rules-section-title">Pitching Rules</div>
+      <div class="rule-item">The pitch must be released with an underhand motion at a moderate speed. <em>No windmill pitching.</em></div>
+      <div class="rule-item">Pitch speed is left to the umpire's discretion. Remember — these are friendly games!</div>
+      <div class="rule-item">The umpire will warn any pitcher delivering a pitch deemed excessively fast. Repeated violations may result in further action at the umpire's discretion.</div>
+    </div>
+
+    <div class="rules-section">
+      <div class="rules-section-title">Rules of Play</div>
+      <div class="rule-item"><span class="rule-label">Fielding</span> Teams may use a maximum of 10 players on defense. A team must start and finish a game with at least 8 players.</div>
+      <div class="rule-item"><span class="rule-label">Batting Order</span> Minimum 9 batters (or 8 if short-handed) up to the full roster. DHs are unlimited — fielders don't have to hit, hitters don't have to field.</div>
+      <div class="rule-item"><span class="rule-label">Bunting</span> Bunting is not permitted.</div>
+      <div class="rule-item"><span class="rule-label">Skipping a Batter</span> If a player can't bat and no sub is available, that spot is skipped with no penalty.</div>
+      <div class="rule-item"><span class="rule-label">Walks</span> Standard walk rules apply.</div>
+      <div class="rule-item"><span class="rule-label">Stealing</span> Stealing is not permitted.</div>
+      <div class="rule-item"><span class="rule-label">No Run Rule</span> There is no run rule. However, a team significantly behind has the right to end the game early. Please be respectful.</div>
+    </div>
+
+    <div class="rules-section">
+      <div class="rules-section-title">Baserunning Rules</div>
+      <div class="rule-item"><span class="rule-label">Courtesy Runners</span> May be used at any time for any reason. The runner must be the last recorded out or a bench sub. The batter must reach first base before a courtesy runner is used.</div>
+      <div class="rule-item"><span class="rule-label">Obstruction</span> Defensive players may not block any base without possession of the ball.</div>
+      <div class="rule-item"><span class="rule-label">Sliding</span> Runners must slide or give themselves up at any close play at any base.</div>
+      <div class="rule-item"><span class="rule-label">Dead Balls</span> Runners advance one (1) base from their position when the ball is declared dead.</div>
+      <div class="rule-item"><span class="rule-label">Double First Base</span> Runners from home must use the orange safety base. Only runners continuing to second may use the white inside base (unless the throw pulls the fielder off or comes from foul territory). Outs may only be recorded on the white inside base.</div>
+    </div>
+
+    <div class="rules-section">
+      <div class="rules-section-title">Substitutions</div>
+      <div class="rule-item"><span class="rule-label">Defensive</span> Unlimited defensive substitutions are permitted at any time.</div>
+      <div class="rule-item"><span class="rule-label">Lineup Spot Partners</span> Two players may share the same lineup spot and rotate each time through the order. Example: in spot #6, Player A and Player B alternate at bat each time through.</div>
+      <div class="rule-item"><span class="rule-label">Important</span> A player may not appear in more than one lineup spot.</div>
+    </div>
+
+    <div class="rules-section">
+      <div class="rules-section-title">Playoffs</div>
+      <div class="rule-item">The top 4 teams from each division qualify for the playoffs.</div>
+      <div class="rule-item">Seeding is determined by regular season record. Tiebreaker: run differential.</div>
+      <div class="rule-item"><span class="rule-label">Semifinals</span> #1 vs #4 and #2 vs #3 in each division.</div>
+      <div class="rule-item"><span class="rule-label">Championship</span> Semifinal winners meet in the championship game.</div>
+    </div>
+
+    <div class="rules-spirit">
+      <div class="rules-spirit-title">The Spirit of This League</div>
+      <div class="rules-spirit-body">Our goal is to give the moms a place to have a little fun and maybe show their kids what they can do on the field — a time where families and friends can cheer for you. The league reserves the right to amend these rules at any time.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SCORE MODAL -->
+<div class="modal-overlay" id="score-modal">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">Game Details</div>
+    <div class="modal-subtitle" id="modal-subtitle"></div>
+    <div class="score-inputs">
+      <div>
+        <div class="score-team-label" id="modal-home"></div>
+        <input type="number" class="score-input" id="input-home" min="0" placeholder="0">
+      </div>
+      <div class="score-vs">VS</div>
+      <div>
+        <div class="score-team-label" id="modal-away"></div>
+        <input type="number" class="score-input" id="input-away" min="0" placeholder="0">
+      </div>
+    </div>
+    <div class="time-field-inputs" id="time-field-section">
+      <div class="time-field-row">
+        <div class="tf-group">
+          <div class="tf-label">Game Time</div>
+          <input type="text" class="tf-input" id="input-time" placeholder="e.g. 6:30 PM">
+        </div>
+        <div class="tf-group">
+          <div class="tf-label">Field</div>
+          <input type="text" class="tf-input" id="input-field" placeholder="e.g. Field 3">
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-clear" onclick="clearScore()">Clear</button>
+      <button class="btn-save" onclick="saveScore()">Save</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p class="footer-text">Plainedge Moms Softball League 2026 &bull; Long Island, NY &bull; Made with <span class="footer-heart">&#9829;</span> for the moms</p>
+</footer>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+const FRIENDLY = 'friendly';
+const COMPETITIVE = 'competitive';
+const PASSWORD_ADMIN = 'gina';
+const PASSWORD_COACH = '2026';
+let isAdmin = false;
+
+const ALL_GAMES = [
+  // WEEK 1
+  {id:'w1-c1',week:1,day:'FRI',date:'MAY 29',division:COMPETITIVE,home:"Sons of Pitches",away:"Bat Attitudes",bye:null},
+  {id:'w1-c2',week:1,day:'FRI',date:'MAY 29',division:COMPETITIVE,home:"Bombshells",away:"I'd Hit That",bye:null},
+  {id:'w1-cb',week:1,day:'FRI',date:'MAY 29',division:COMPETITIVE,home:null,away:null,bye:"Free Ballers"},
+  {id:'w1-f1',week:1,day:'SUN',date:'MAY 31',division:FRIENDLY,home:"Drunk Bunts",away:"Ball Busters",bye:null},
+  {id:'w1-f2',week:1,day:'SUN',date:'MAY 31',division:FRIENDLY,home:"Yo Mamas",away:"Pitch Please",bye:null},
+  {id:'w1-f3',week:1,day:'SUN',date:'MAY 31',division:FRIENDLY,home:"Peaches",away:"Base-ic Pitches",bye:null},
+  // WEEK 2
+  {id:'w2-c1',week:2,day:'FRI',date:'JUNE 5',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
+  {id:'w2-c2',week:2,day:'FRI',date:'JUNE 5',division:COMPETITIVE,home:"Sons of Pitches",away:"Bombshells",bye:null},
+  {id:'w2-cb',week:2,day:'FRI',date:'JUNE 5',division:COMPETITIVE,home:null,away:null,bye:"I'd Hit That"},
+  {id:'w2-f1',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Dugout Divas",away:"Salty Pitches",bye:null},
+  {id:'w2-f2',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Pitches Be Crazy",away:"Resting Pitch Face",bye:null},
+  {id:'w2-f3',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Peaches",away:"Yo Mamas",bye:null},
+  // WEEK 3
+  {id:'w3-c1',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"I'd Hit That",away:"Free Ballers",bye:null},
+  {id:'w3-c2',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"Sons of Pitches",away:"Bat Attitudes",bye:null},
+  {id:'w3-cb',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
+  {id:'w3-f1',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Ball Busters",away:"Base-ic Pitches",bye:null},
+  {id:'w3-f2',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Salty Pitches",away:"Pitch Please",bye:null},
+  {id:'w3-f3',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Dugout Divas",away:"Pitches Be Crazy",bye:null},
+  // WEEK 4
+  {id:'w4-c1',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:"Bombshells",away:"Free Ballers",bye:null},
+  {id:'w4-c2',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
+  {id:'w4-cb',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:null,away:null,bye:"Sons of Pitches"},
+  {id:'w4-f1',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Drunk Bunts",away:"Resting Pitch Face",bye:null},
+  {id:'w4-f2',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitch Please",bye:null},
+  {id:'w4-f3',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Peaches",away:"Salty Pitches",bye:null},
+  // WEEK 5
+  {id:'w5-c1',week:5,day:'FRI',date:'JUNE 26',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
+  {id:'w5-c2',week:5,day:'FRI',date:'JUNE 26',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
+  {id:'w5-cb',week:5,day:'FRI',date:'JUNE 26',division:COMPETITIVE,home:null,away:null,bye:"Bat Attitudes"},
+  {id:'w5-f1',week:5,day:'SUN',date:'JUNE 28',division:FRIENDLY,home:"Yo Mamas",away:"Resting Pitch Face",bye:null},
+  {id:'w5-f2',week:5,day:'SUN',date:'JUNE 28',division:FRIENDLY,home:"Ball Busters",away:"Dugout Divas",bye:null},
+  {id:'w5-f3',week:5,day:'SUN',date:'JUNE 28',division:FRIENDLY,home:"Drunk Bunts",away:"Pitches Be Crazy",bye:null},
+  // WEEK 6
+  {id:'w6-c1',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:"Sons of Pitches",away:"Bombshells",bye:null},
+  {id:'w6-c2',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
+  {id:'w6-cb',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:null,away:null,bye:"Free Ballers"},
+  {id:'w6-f1',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Drunk Bunts",away:"Base-ic Pitches",bye:null},
+  {id:'w6-f2',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Yo Mamas",away:"Pitches Be Crazy",bye:null},
+  {id:'w6-f3',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Peaches",away:"Pitch Please",bye:null},
+  // WEEK 7
+  {id:'w7-c1',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
+  {id:'w7-c2',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Sons of Pitches",away:"I'd Hit That",bye:null},
+  {id:'w7-cb',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
+  {id:'w7-f1',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Dugout Divas",away:"Resting Pitch Face",bye:null},
+  {id:'w7-f2',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Ball Busters",away:"Salty Pitches",bye:null},
+  {id:'w7-f3',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Yo Mamas",away:"Base-ic Pitches",bye:null},
+  // WEEK 8
+  {id:'w8-c1',week:8,day:'FRI',date:'JULY 17',division:COMPETITIVE,home:"Bombshells",away:"Free Ballers",bye:null},
+  {id:'w8-c2',week:8,day:'FRI',date:'JULY 17',division:COMPETITIVE,home:"Sons of Pitches",away:"Bat Attitudes",bye:null},
+  {id:'w8-cb',week:8,day:'FRI',date:'JULY 17',division:COMPETITIVE,home:null,away:null,bye:"I'd Hit That"},
+  {id:'w8-f1',week:8,day:'SUN',date:'JULY 19',division:FRIENDLY,home:"Pitches Be Crazy",away:"Pitch Please",bye:null},
+  {id:'w8-f2',week:8,day:'SUN',date:'JULY 19',division:FRIENDLY,home:"Peaches",away:"Dugout Divas",bye:null},
+  {id:'w8-f3',week:8,day:'SUN',date:'JULY 19',division:FRIENDLY,home:"Drunk Bunts",away:"Salty Pitches",bye:null},
+  // WEEK 9
+  {id:'w9-c1',week:9,day:'FRI',date:'AUG 1',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
+  {id:'w9-c2',week:9,day:'FRI',date:'AUG 1',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
+  {id:'w9-cb',week:9,day:'FRI',date:'AUG 1',division:COMPETITIVE,home:null,away:null,bye:"Bat Attitudes"},
+  {id:'w9-f1',week:9,day:'SUN',date:'AUG 3',division:FRIENDLY,home:"Ball Busters",away:"Resting Pitch Face",bye:null},
+  {id:'w9-f2',week:9,day:'SUN',date:'AUG 3',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitches Be Crazy",bye:null},
+  {id:'w9-f3',week:9,day:'SUN',date:'AUG 3',division:FRIENDLY,home:"Dugout Divas",away:"Yo Mamas",bye:null},
+];
+
+const FRIENDLY_TEAMS = ["Drunk Bunts","Peaches","Ball Busters","Dugout Divas","Yo Mamas","Base-ic Pitches","Salty Pitches","Pitches Be Crazy","Resting Pitch Face","Pitch Please"];
+const COMPETITIVE_TEAMS = ["Sons of Pitches","I'd Hit That","Bombshells","Bat Attitudes","Free Ballers"];
+
+// ── SUPABASE CONFIG ───────────────────────────────────────────────────────────
+const SUPABASE_URL = 'https://xxqcmmztwbwhvqczhvim.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_3Mg-dddr8brz68o2izHQ8g_gA22bBpX';
+const TABLE = 'game_scores';
+
+// In-memory cache so the page feels instant
+let scoreCache = {};
+let cacheLoaded = false;
+
+async function loadAllScores() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}?select=*`, {
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+    });
+    const rows = await res.json();
+    scoreCache = {};
+    if (Array.isArray(rows)) {
+      rows.forEach(r => {
+        scoreCache[r.id] = {
+          homeScore: r.home_score,
+          awayScore: r.away_score,
+          gameTime: r.game_time || '',
+          gameField: r.game_field || ''
+        };
+      });
+    }
+    cacheLoaded = true;
+  } catch(e) { console.error('Load scores error:', e); }
+}
+
+function getGameScore(id) {
+  return scoreCache[id] || null;
+}
+
+async function setGameScore(id, homeScore, awayScore, gameTime, gameField) {
+  scoreCache[id] = { homeScore, awayScore, gameTime: gameTime||'', gameField: gameField||'' };
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'resolution=merge-duplicates'
+      },
+      body: JSON.stringify({ id, home_score: homeScore, away_score: awayScore, game_time: gameTime||null, game_field: gameField||null })
+    });
+  } catch(e) { console.error('Save score error:', e); }
+}
+
+async function saveTimeField(id, gameTime, gameField) {
+  const existing = scoreCache[id] || {};
+  scoreCache[id] = { ...existing, gameTime: gameTime||'', gameField: gameField||'' };
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'resolution=merge-duplicates'
+      },
+      body: JSON.stringify({
+        id,
+        home_score: existing.homeScore ?? null,
+        away_score: existing.awayScore ?? null,
+        game_time: gameTime || null,
+        game_field: gameField || null
+      })
+    });
+  } catch(e) { console.error('Save time/field error:', e); }
+}
+
+async function clearGameScore(id) {
+  delete scoreCache[id];
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+    });
+  } catch(e) { console.error('Clear score error:', e); }
+}
+
+// ── STANDINGS CALCULATION ────────────────────────────────────────────────────
+function calcStandings(division) {
+  const teams = division === FRIENDLY ? FRIENDLY_TEAMS : COMPETITIVE_TEAMS;
+  const stats = {};
+  teams.forEach(t => stats[t] = {w:0,l:0,ties:0,gp:0,rs:0,ra:0});
+
+  ALL_GAMES.filter(g => g.division === division && !g.bye).forEach(g => {
+    const sc = getGameScore(g.id);
+    if (!sc) return;
+    const {homeScore:hs, awayScore:as} = sc;
+    stats[g.home].gp++; stats[g.away].gp++;
+    stats[g.home].rs += hs; stats[g.home].ra += as;
+    stats[g.away].rs += as; stats[g.away].ra += hs;
+    if (hs > as) { stats[g.home].w++; stats[g.away].l++; }
+    else if (as > hs) { stats[g.away].w++; stats[g.home].l++; }
+    else { stats[g.home].ties++; stats[g.away].ties++; }
+  });
+
+  return teams.map(t => ({
+    team: t,
+    ...stats[t],
+    rd: stats[t].rs - stats[t].ra,
+    pct: stats[t].gp > 0 ? ((stats[t].w + stats[t].ties * 0.5) / stats[t].gp) : 0
+  })).sort((a,b) => {
+    if (b.w !== a.w) return b.w - a.w;
+    if (b.ties !== a.ties) return b.ties - a.ties;
+    return b.rd - a.rd;
+  });
+}
+
+// ── PAGE NAVIGATION ───────────────────────────────────────────────────────────
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+  if (name === 'schedule') renderSchedule();
+  if (name === 'standings') renderStandings();
+  if (name === 'admin') renderAdmin();
+  window.scrollTo(0,0);
+}
+
+// ── SCHEDULE RENDER ───────────────────────────────────────────────────────────
+function softball() {
+  return `<svg width="16" height="16" viewBox="0 0 100 100" style="vertical-align:middle;margin-right:4px;" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="47" fill="#f5f0d0" stroke="#d4c97a" stroke-width="1.5"/><path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="4" stroke-linecap="round"/><path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="4" stroke-linecap="round"/><line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="21" y1="40" x2="15" y2="40" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="21" y1="60" x2="15" y2="60" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="79" y1="40" x2="85" y2="40" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="79" y1="60" x2="85" y2="60" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/></svg>`;
+}
+
+function renderGameCard(g) {
+  const sc = getGameScore(g.id);
+  const homeWin = sc && sc.homeScore > sc.awayScore;
+  const awayWin = sc && sc.awayScore > sc.homeScore;
+
+  let scoreHtml = '';
+  if (sc) {
+    scoreHtml = `<div class="score-display"><span class="score-num">${sc.homeScore}</span><span class="score-dash">—</span><span class="score-num">${sc.awayScore}</span></div>`;
+  }
+
+  return `
+  <div class="game-card">
+    <div class="game-main">
+      <div class="team-block ${homeWin?'winner-highlight':''}">
+        ${homeWin ? softball() : ''}
+        <div class="team-name">${g.home}</div>
+      </div>
+      <div class="vs-block">
+        ${sc ? scoreHtml : `<div class="vs-text">VS</div><div class="vs-dots"><div class="vs-dot"></div><div class="vs-dot"></div><div class="vs-dot"></div></div>`}
+      </div>
+      <div class="team-block ${awayWin?'winner-highlight':''}">
+        ${awayWin ? softball() : ''}
+        <div class="team-name">${g.away}</div>
+      </div>
+    </div>
+    <div class="game-footer">
+      <div class="game-footer-cell"><div class="footer-label">Time</div><div class="footer-value">${sc && sc.gameTime ? sc.gameTime : ''}</div></div>
+      <div class="game-footer-cell"><div class="footer-label">Field</div><div class="footer-value">${sc && sc.gameField ? sc.gameField : ''}</div></div>
+    </div>
+  </div>`;
+}
+
+function toggleWeek(wk) {
+  const header = document.getElementById('week-header-'+wk);
+  const body = document.getElementById('week-body-'+wk);
+  header.classList.toggle('open');
+  body.classList.toggle('open');
+}
+
+function renderSchedule() {
+  const weeks = [1,2,3,4,5,6,7,8,9];
+  let html = '';
+
+  // Find the current/next upcoming week based on scores entered
+  let openWeek = 1;
+  for (let wk = 1; wk <= 9; wk++) {
+    const games = ALL_GAMES.filter(g => g.week === wk && !g.bye);
+    const anyPlayed = games.some(g => getGameScore(g.id));
+    if (anyPlayed) openWeek = wk;
+  }
+
+  weeks.forEach(wk => {
+    const friGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye);
+    const friBye = ALL_GAMES.find(g => g.week === wk && g.day === 'FRI' && g.bye);
+    const sunGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SUN' && !g.bye);
+    const friDate = friGames[0]?.date || friBye?.date || '';
+    const sunDate = sunGames[0]?.date || '';
+    const allGames = [...friGames, ...sunGames];
+    const playedCount = allGames.filter(g => getGameScore(g.id)).length;
+    const isOpen = wk === openWeek;
+
+    // After week 8, add skip notice
+    if (wk === 9) {
+      html += `
+      <div class="skip-notice" style="margin:16px 0 8px;">
+        <div class="skip-title">No Games &mdash; July 24, 25 &amp; 26</div>
+        <div class="skip-subtitle">Long Island Fire Tournament &bull; Fields Unavailable</div>
+      </div>`;
+    }
+
+    html += `
+    <div class="week-block">
+      <div class="week-header ${isOpen?'open':''}" id="week-header-${wk}" onclick="toggleWeek(${wk})">
+        <div class="week-num">0${wk}</div>
+        <div class="week-title-block">
+          <div class="week-label">Week ${wk}</div>
+          <div class="week-sublabel">${friDate}${friDate && sunDate ? ' &bull; ' : ''}${sunDate}</div>
+          ${playedCount > 0 ? `<div class="week-score-preview">${Array(playedCount).fill('<div class="week-score-pip"></div>').join('')}<span style="font-family:Oswald,sans-serif;font-size:10px;letter-spacing:1px;color:var(--red);margin-left:2px;">${playedCount} result${playedCount>1?'s':''}</span></div>` : ''}
+        </div>
+        <div class="week-chevron">▾</div>
+      </div>
+      <div class="week-body ${isOpen?'open':''}" id="week-body-${wk}">
+        <div class="days-row">
+          <div class="day-panel friday">
+            <div class="day-header">
+              <div class="day-tag">Friday</div>
+              <div class="day-date-block">
+                <div class="day-name">Friday</div>
+                <div class="day-date">${friDate}</div>
+              </div>
+            </div>
+            <div class="division-label">Competitive Division</div>
+            <div class="games-list">
+              ${friGames.map(renderGameCard).join('')}
+              ${friBye ? `<div class="bye-row"><div class="bye-label">BYE</div><div class="bye-team">${friBye.bye}</div></div>` : ''}
+            </div>
+          </div>
+          <div class="day-panel sunday">
+            <div class="day-header">
+              <div class="day-tag">Sunday</div>
+              <div class="day-date-block">
+                <div class="day-name">Sunday</div>
+                <div class="day-date">${sunDate}</div>
+              </div>
+            </div>
+            <div class="division-label">Friendly Division</div>
+            <div class="games-list">
+              ${sunGames.map(renderGameCard).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // Playoffs
+  html += `
+  <div class="week-divider" style="margin-top:48px;"></div>
+  <div class="playoffs-section" style="margin-top:48px;">
+    <div class="section-eyebrow">Postseason</div>
+    <div class="section-heading">Playoffs &amp; Championship</div>
+    <div class="playoffs-grid">
+      <div class="playoff-card">
+        <div class="playoff-card-header red">
+          <div class="playoff-event">Competitive Semifinals</div>
+          <div class="playoff-date">Friday &bull; August 8, 2026</div>
+        </div>
+        <div class="playoff-matchups">
+          <div class="playoff-matchup"><div class="playoff-seed red">#1</div><div class="playoff-vs-text">VS</div><div class="playoff-seed red">#4</div></div>
+          <div class="playoff-matchup"><div class="playoff-seed red">#2</div><div class="playoff-vs-text">VS</div><div class="playoff-seed red">#3</div></div>
+        </div>
+      </div>
+      <div class="playoff-card">
+        <div class="playoff-card-header black">
+          <div class="playoff-event">Friendly Semifinals</div>
+          <div class="playoff-date">Sunday &bull; August 9, 2026</div>
+        </div>
+        <div class="playoff-matchups">
+          <div class="playoff-matchup"><div class="playoff-seed black">#1</div><div class="playoff-vs-text">VS</div><div class="playoff-seed black">#4</div></div>
+          <div class="playoff-matchup"><div class="playoff-seed black">#2</div><div class="playoff-vs-text">VS</div><div class="playoff-seed black">#3</div></div>
+        </div>
+      </div>
+      <div class="playoff-card">
+        <div class="playoff-card-header black">
+          <div class="playoff-event">Playoff Qualifiers</div>
+          <div class="playoff-date">Top 4 from each division</div>
+        </div>
+        <div class="playoff-matchups" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:#555;line-height:1.6;">
+          Seeding by regular season record.<br>Tiebreaker: run differential.
+        </div>
+      </div>
+    </div>
+    <div class="champ-banner">
+      <div class="champ-eyebrow">The Main Event</div>
+      <div class="champ-title">Championship Friday</div>
+      <div class="champ-date">August 14, 2026 &bull; Under the Lights</div>
+      <div class="champ-games">
+        <div class="champ-game"><div class="champ-game-label">Friendly Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
+        <div class="champ-game"><div class="champ-game-label">Competitive Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
+      </div>
+    </div>
+  </div>`;
+
+  document.getElementById('schedule-container').innerHTML = html;
+}
+
+// ── STANDINGS RENDER ──────────────────────────────────────────────────────────
+function renderStandings() {
+  const divs = [
+    { name:'Friendly Division', division:FRIENDLY, barClass:'' },
+    { name:'Competitive Division', division:COMPETITIVE, barClass:'black-bar' }
+  ];
+
+  let html = `<div class="playoff-legend"><div class="legend-box"></div> Playoff position (top 4)</div>`;
+
+  divs.forEach(d => {
+    const rows = calcStandings(d.division);
+    const anyPlayed = rows.some(r => r.gp > 0);
+
+    html += `
+    <div class="standings-division">
+      <div class="div-heading">
+        <div class="div-heading-bar ${d.barClass}"></div>
+        <div class="div-heading-text">${d.name}</div>
+      </div>`;
+
+    if (!anyPlayed) {
+      html += `<div class="no-games-msg">Season hasn't started yet &mdash; check back after the first games!</div>`;
+    } else {
+      html += `
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th style="width:40px;">#</th>
+            <th>Team</th>
+            <th class="center">W</th>
+            <th class="center">L</th>
+            <th class="center">T</th>
+            <th class="center">GP</th>
+            <th class="center">Run Diff</th>
+          </tr>
+        </thead>
+        <tbody>`;
+
+      rows.forEach((r, i) => {
+        const isPlayoff = i < 4;
+        const rdClass = r.rd > 0 ? 'rd-pos' : r.rd < 0 ? 'rd-neg' : '';
+        const rdStr = r.rd > 0 ? `+${r.rd}` : `${r.rd}`;
+        html += `
+        <tr class="${isPlayoff ? 'playoff-spot' : ''}">
+          <td class="rank-cell ${i===0?'top':''}">${i+1}</td>
+          <td class="team-cell">${r.team}</td>
+          <td class="center win-cell">${r.w}</td>
+          <td class="center">${r.l}</td>
+          <td class="center">${r.ties}</td>
+          <td class="center record-cell">${r.gp}</td>
+          <td class="center ${rdClass}">${r.gp > 0 ? rdStr : '—'}</td>
+        </tr>`;
+      });
+
+      html += `</tbody></table>
+      <p class="standings-note">Shaded rows = playoff position &bull; Tiebreaker: run differential</p>`;
+    }
+
+    html += `</div>`;
+  });
+
+  document.getElementById('standings-container').innerHTML = html;
+}
+
+// ── ADMIN RENDER ──────────────────────────────────────────────────────────────
+let isLoggedIn = false;
+let currentGameId = null;
+
+function doLogin() {
+  const val = document.getElementById('pwd-input').value;
+  if (val === PASSWORD_ADMIN) {
+    isLoggedIn = true;
+    isAdmin = true;
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('admin-panel').classList.add('visible');
+    renderAdminGames();
+  } else if (val === PASSWORD_COACH) {
+    isLoggedIn = true;
+    isAdmin = false;
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('admin-panel').classList.add('visible');
+    renderAdminGames();
+  } else {
+    document.getElementById('login-error').textContent = 'Incorrect password. Try again.';
+  }
+}
+
+function doLogout() {
+  isLoggedIn = false;
+  isAdmin = false;
+  document.getElementById('login-section').style.display = 'block';
+  document.getElementById('admin-panel').classList.remove('visible');
+  document.getElementById('pwd-input').value = '';
+  document.getElementById('login-error').textContent = '';
+}
+
+function renderAdmin() {
+  if (isLoggedIn) renderAdminGames();
+}
+
+function renderAdminGames() {
+  const weeks = [1,2,3,4,5,6,7,8,9];
+  let html = '';
+
+  weeks.forEach(wk => {
+    const games = ALL_GAMES.filter(g => g.week === wk && !g.bye);
+    const byes = ALL_GAMES.filter(g => g.week === wk && g.bye);
+    const dates = [...new Set(games.map(g => g.date))].join(' & ');
+
+    html += `<div class="admin-week">
+      <div class="admin-week-label">Week ${wk} &mdash; ${dates}</div>`;
+
+    games.forEach(g => {
+      const sc = getGameScore(g.id);
+      const dayLabel = g.day === 'FRI' ? 'FRI (Competitive)' : 'SUN (Friendly)';
+      const scoreStr = sc ? `${sc.homeScore} – ${sc.awayScore}` : 'Click to enter score';
+      html += `
+      <div class="admin-game-row ${sc?'played':''}" onclick="openModal('${g.id}')">
+        <div class="admin-team">${g.home}</div>
+        <div class="admin-vs">VS</div>
+        <div class="admin-team">${g.away}</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <div class="admin-score-display ${sc?'entered':''}">${scoreStr}</div>
+          ${sc && sc.gameTime ? `<div style="font-family:Oswald,sans-serif;font-size:11px;color:var(--gray);letter-spacing:1px;">${sc.gameTime}${sc.gameField ? ' &bull; '+sc.gameField : ''}</div>` : ''}
+        </div>
+      </div>`;
+    });
+
+    byes.forEach(g => {
+      html += `<div class="admin-bye-row">BYE: ${g.bye}</div>`;
+    });
+
+    html += `</div>`;
+  });
+
+  document.getElementById('admin-games-list').innerHTML = html;
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────────────────
+function openModal(gameId) {
+  const g = ALL_GAMES.find(x => x.id === gameId);
+  if (!g) return;
+  currentGameId = gameId;
+
+  document.getElementById('modal-title').textContent = 'Game Details';
+  document.getElementById('modal-subtitle').textContent = `Week ${g.week} • ${g.date}`;
+  document.getElementById('modal-home').textContent = g.home;
+  document.getElementById('modal-away').textContent = g.away;
+
+  const sc = getGameScore(gameId);
+  document.getElementById('input-home').value = sc && sc.homeScore !== undefined && sc.homeScore !== null ? sc.homeScore : '';
+  document.getElementById('input-away').value = sc && sc.awayScore !== undefined && sc.awayScore !== null ? sc.awayScore : '';
+  document.getElementById('input-time').value = sc ? sc.gameTime || '' : '';
+  document.getElementById('input-field').value = sc ? sc.gameField || '' : '';
+
+  // Show time/field only for admin
+  document.getElementById('time-field-section').style.display = isAdmin ? 'block' : 'none';
+  document.getElementById('score-modal').classList.add('open');
+  isAdmin ? document.getElementById('input-time').focus() : document.getElementById('input-home').focus();
+}
+
+function closeModal() {
+  document.getElementById('score-modal').classList.remove('open');
+  currentGameId = null;
+}
+
+async function saveScore() {
+  if (!currentGameId) return;
+  const homeVal = document.getElementById('input-home').value.trim();
+  const awayVal = document.getElementById('input-away').value.trim();
+  const gameTime = document.getElementById('input-time').value.trim();
+  const gameField = document.getElementById('input-field').value.trim();
+
+  // Allow saving time/field even without scores
+  const hs = homeVal !== '' ? parseInt(homeVal) : null;
+  const as = awayVal !== '' ? parseInt(awayVal) : null;
+
+  if ((homeVal !== '' && isNaN(hs)) || (awayVal !== '' && isNaN(as))) {
+    alert('Please enter valid scores.');
+    return;
+  }
+  if ((homeVal !== '' && awayVal === '') || (homeVal === '' && awayVal !== '')) {
+    alert('Please enter scores for both teams.');
+    return;
+  }
+
+  if (hs !== null && as !== null) {
+    await setGameScore(currentGameId, hs, as, gameTime, gameField);
+  } else {
+    await saveTimeField(currentGameId, gameTime, gameField);
+  }
+  closeModal();
+  renderAdminGames();
+  renderSchedule();
+  renderStandings();
+}
+
+async function clearScore() {
+  if (!currentGameId) return;
+  await clearGameScore(currentGameId);
+  closeModal();
+  renderAdminGames();
+  renderSchedule();
+  renderStandings();
+}
+
+// Close modal on overlay click
+document.getElementById('score-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+// Load scores from Supabase then render
+loadAllScores().then(() => {
+  renderSchedule();
+  // Poll for updates every 30 seconds so all viewers see live scores
+  setInterval(async () => {
+    await loadAllScores();
+    const activePage = document.querySelector('.page.active')?.id;
+    if (activePage === 'page-schedule') renderSchedule();
+    if (activePage === 'page-standings') renderStandings();
+  }, 30000);
+});
+</script>
+</body>
+</html>
