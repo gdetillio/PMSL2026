@@ -336,7 +336,7 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 </svg>
       </div>
       <h1 class="main-title">PLAINEDGE<span>MOMS SOFTBALL</span>LEAGUE</h1>
-      <p class="season-dates">MAY 29 &mdash; AUGUST 14, 2026 &bull; LONG ISLAND, NY</p>
+      <p class="season-dates">MAY 29 &mdash; AUGUST 21, 2026 &bull; LONG ISLAND, NY</p>
       <div class="division-badges">
         <div class="div-badge friendly">Friendly Division &bull; 10 Teams</div>
         <div class="div-badge competitive">Competitive Division &bull; 5 Teams</div>
@@ -537,7 +537,7 @@ const ALL_GAMES = [
   {id:'w4-cb',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
   {id:'w4-f1',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Drunk Bunts",away:"Resting Pitch Face",bye:null},
   {id:'w4-f2',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitch Please",bye:null},
-  {id:'w4-f3',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Peaches",away:"Salty Pitches",bye:null},
+  {id:'w4-f3',week:4,day:'SAT',date:'JUNE 20',division:FRIENDLY,home:"Peaches",away:"Salty Pitches",bye:null},
   // WEEK 5
   {id:'w5-c1',week:5,day:'FRI',date:'JUNE 26',division:COMPETITIVE,home:"Bombshells",away:"Bat Attitudes",bye:null},
   {id:'w5-c2',week:5,day:'FRI',date:'JUNE 26',division:COMPETITIVE,home:"Sons of Pitches",away:"I'd Hit That",bye:null},
@@ -560,19 +560,19 @@ const ALL_GAMES = [
   {id:'w7-f2',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Ball Busters",away:"Salty Pitches",bye:null},
   {id:'w7-f3',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Yo Mamas",away:"Base-ic Pitches",bye:null},
   // WEEK 8
-  {id:'w8-c1',week:8,day:'FRI',date:'JULY 17',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
-  {id:'w8-c2',week:8,day:'FRI',date:'JULY 17',division:COMPETITIVE,home:"Sons of Pitches",away:"Bombshells",bye:null},
-  {id:'w8-cb',week:8,day:'FRI',date:'JULY 17',division:COMPETITIVE,home:null,away:null,bye:"Free Ballers"},
-  {id:'w8-f1',week:8,day:'SUN',date:'JULY 19',division:FRIENDLY,home:"Pitches Be Crazy",away:"Pitch Please",bye:null},
-  {id:'w8-f2',week:8,day:'SUN',date:'JULY 19',division:FRIENDLY,home:"Peaches",away:"Dugout Divas",bye:null},
-  {id:'w8-f3',week:8,day:'SUN',date:'JULY 19',division:FRIENDLY,home:"Drunk Bunts",away:"Salty Pitches",bye:null},
+  {id:'w8-c1',week:8,day:'FRI',date:'JULY 31',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
+  {id:'w8-c2',week:8,day:'FRI',date:'JULY 31',division:COMPETITIVE,home:"Sons of Pitches",away:"Bombshells",bye:null},
+  {id:'w8-cb',week:8,day:'FRI',date:'JULY 31',division:COMPETITIVE,home:null,away:null,bye:"Free Ballers"},
+  {id:'w8-f1',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Pitches Be Crazy",away:"Pitch Please",bye:null},
+  {id:'w8-f2',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Peaches",away:"Dugout Divas",bye:null},
+  {id:'w8-f3',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Drunk Bunts",away:"Salty Pitches",bye:null},
   // WEEK 9
-  {id:'w9-c1',week:9,day:'FRI',date:'AUG 1',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
-  {id:'w9-c2',week:9,day:'FRI',date:'AUG 1',division:COMPETITIVE,home:"Sons of Pitches",away:"I'd Hit That",bye:null},
-  {id:'w9-cb',week:9,day:'FRI',date:'AUG 1',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
-  {id:'w9-f1',week:9,day:'SUN',date:'AUG 3',division:FRIENDLY,home:"Ball Busters",away:"Resting Pitch Face",bye:null},
-  {id:'w9-f2',week:9,day:'SUN',date:'AUG 3',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitches Be Crazy",bye:null},
-  {id:'w9-f3',week:9,day:'SUN',date:'AUG 3',division:FRIENDLY,home:"Dugout Divas",away:"Yo Mamas",bye:null},
+  {id:'w9-c1',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
+  {id:'w9-c2',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:"Sons of Pitches",away:"I'd Hit That",bye:null},
+  {id:'w9-cb',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
+  {id:'w9-f1',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Ball Busters",away:"Resting Pitch Face",bye:null},
+  {id:'w9-f2',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitches Be Crazy",bye:null},
+  {id:'w9-f3',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Dugout Divas",away:"Yo Mamas",bye:null},
 ];
 
 const FRIENDLY_TEAMS = ["Drunk Bunts","Peaches","Ball Busters","Dugout Divas","Yo Mamas","Base-ic Pitches","Salty Pitches","Pitches Be Crazy","Resting Pitch Face","Pitch Please"];
@@ -838,7 +838,7 @@ function renderSchedule() {
       <div class="playoff-card">
         <div class="playoff-card-header red">
           <div class="playoff-event">Competitive Semifinals</div>
-          <div class="playoff-date">Friday &bull; August 8, 2026</div>
+          <div class="playoff-date">Friday &bull; August 14, 2026</div>
         </div>
         <div class="playoff-matchups">
           <div class="playoff-matchup"><div class="playoff-seed red">#1</div><div class="playoff-vs-text">VS</div><div class="playoff-seed red">#4</div></div>
@@ -848,7 +848,7 @@ function renderSchedule() {
       <div class="playoff-card">
         <div class="playoff-card-header black">
           <div class="playoff-event">Friendly Semifinals</div>
-          <div class="playoff-date">Sunday &bull; August 9, 2026</div>
+          <div class="playoff-date">Sunday &bull; August 16, 2026</div>
         </div>
         <div class="playoff-matchups">
           <div class="playoff-matchup"><div class="playoff-seed black">#1</div><div class="playoff-vs-text">VS</div><div class="playoff-seed black">#4</div></div>
@@ -868,7 +868,7 @@ function renderSchedule() {
     <div class="champ-banner">
       <div class="champ-eyebrow">The Main Event</div>
       <div class="champ-title">Championship Friday</div>
-      <div class="champ-date">August 14, 2026 &bull; Under the Lights</div>
+      <div class="champ-date">August 21, 2026 &bull; Under the Lights</div>
       <div class="champ-games">
         <div class="champ-game"><div class="champ-game-label">Friendly Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
         <div class="champ-game"><div class="champ-game-label">Competitive Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
