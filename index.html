@@ -767,9 +767,11 @@ function renderSchedule() {
   weeks.forEach(wk => {
     const friGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye);
     const friBye = ALL_GAMES.find(g => g.week === wk && g.day === 'FRI' && g.bye);
-    const sunGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SUN' && !g.bye);
+    const sunGames = ALL_GAMES.filter(g => g.week === wk && (g.day === 'SUN' || g.day === 'SAT') && !g.bye);
     const friDate = friGames[0]?.date || friBye?.date || '';
     const sunDate = sunGames[0]?.date || '';
+    // Build subtitle showing all unique dates
+    const sunDates = [...new Set(sunGames.map(g => g.date))].join(' & ');
     const allGames = [...friGames, ...sunGames];
     const playedCount = allGames.filter(g => getGameScore(g.id)).length;
     const isOpen = wk === openWeek;
@@ -789,7 +791,7 @@ function renderSchedule() {
         <div class="week-num">0${wk}</div>
         <div class="week-title-block">
           <div class="week-label">Week ${wk}</div>
-          <div class="week-sublabel">${friDate}${friDate && sunDate ? ' &bull; ' : ''}${sunDate}</div>
+          <div class="week-sublabel">${friDate}${friDate && sunDates ? ' &bull; ' : ''}${sunDates}</div>
           ${playedCount > 0 ? `<div class="week-score-preview">${Array(playedCount).fill('<div class="week-score-pip"></div>').join('')}<span style="font-family:Oswald,sans-serif;font-size:10px;letter-spacing:1px;color:var(--red);margin-left:2px;">${playedCount} result${playedCount>1?'s':''}</span></div>` : ''}
         </div>
         <div class="week-chevron">▾</div>
@@ -815,7 +817,7 @@ function renderSchedule() {
               <div class="day-tag">Sunday</div>
               <div class="day-date-block">
                 <div class="day-name">Sunday</div>
-                <div class="day-date">${sunDate}</div>
+                <div class="day-date">${sunDates}</div>
               </div>
             </div>
             <div class="division-label">Friendly Division</div>
