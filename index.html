@@ -69,6 +69,8 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .day-panel.friday{border-top-color:var(--red);}
 .day-panel.saturday{border-top-color:#CC7700;}
 .saturday .day-tag{background:#CC7700;color:var(--white);}
+.day-panel.monday{border-top-color:#555;}
+.monday .day-tag{background:#555;color:var(--white);}
 .day-header{display:flex;align-items:stretch;}
 .day-tag{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;padding:10px 12px;display:flex;align-items:center;writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);min-width:34px;}
 .friday .day-tag{background:var(--red);color:var(--white);}
@@ -526,7 +528,7 @@ const ALL_GAMES = [
   {id:'w2-f1',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Drunk Bunts",away:"Dugout Divas",bye:null},
   {id:'w2-f2',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Pitches Be Crazy",away:"Resting Pitch Face",bye:null},
   {id:'w2-f3',week:2,day:'SAT',date:'JUNE 6 (Sat)',division:FRIENDLY,home:"Peaches",away:"Yo Mamas",bye:null},
-  {id:'w2-f4',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Ball Busters",away:"Pitch Please",bye:null},
+  {id:'w2-f4',week:2,day:'SAT',date:'JUNE 6 (Sat)',division:FRIENDLY,home:"Ball Busters",away:"Pitch Please",bye:null},
   // WEEK 3
   {id:'w3-c1',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
   {id:'w3-c2',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
@@ -554,7 +556,7 @@ const ALL_GAMES = [
   {id:'w6-c1',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
   {id:'w6-c2',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
   {id:'w6-cb',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:null,away:null,bye:"Sons of Pitches"},
-  {id:'w6-f1',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Drunk Bunts",away:"Base-ic Pitches",bye:null},
+  {id:'w6-f1',week:6,day:'MON',date:'JULY 6 (Mon)',division:FRIENDLY,home:"Drunk Bunts",away:"Base-ic Pitches",bye:null},
   {id:'w6-f2',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Yo Mamas",away:"Pitches Be Crazy",bye:null},
   {id:'w6-f3',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Peaches",away:"Ball Busters",bye:null},
   {id:'w6-f4',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Pitch Please",away:"Dugout Divas",bye:null},
@@ -779,10 +781,12 @@ function renderSchedule() {
     const friBye = ALL_GAMES.find(g => g.week === wk && g.day === 'FRI' && g.bye);
     const satGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SAT' && !g.bye);
     const sunGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SUN' && !g.bye);
+    const monGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'MON' && !g.bye);
     const friDate = friGames[0]?.date || friBye?.date || '';
     const satDate = satGames[0]?.date || '';
     const sunDate = sunGames[0]?.date || '';
     const sunDates = sunDate;
+    const monDate = monGames[0]?.date || '';
     const allGames = [...friGames, ...sunGames];
     const playedCount = allGames.filter(g => getGameScore(g.id)).length;
     const isOpen = wk === openWeek;
@@ -845,6 +849,17 @@ function renderSchedule() {
               </div>
               <div class="division-label">Friendly Division</div>
               <div class="games-list">${sunGames.map(renderGameCard).join('')}</div>
+            </div>` : ''}
+            ${monGames.length > 0 ? `<div class="day-panel monday">
+              <div class="day-header">
+                <div class="day-tag">Mon</div>
+                <div class="day-date-block">
+                  <div class="day-name">Monday</div>
+                  <div class="day-date" style="color:#333;">${monDate}</div>
+                </div>
+              </div>
+              <div class="division-label">Friendly Division</div>
+              <div class="games-list">${monGames.map(renderGameCard).join('')}</div>
             </div>` : ''}
           </div>
         </div>
