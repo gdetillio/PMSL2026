@@ -67,6 +67,8 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 /* DAY PANEL */
 .day-panel{background:var(--white);border-top:5px solid var(--black);overflow:hidden;}
 .day-panel.friday{border-top-color:var(--red);}
+.day-panel.saturday{border-top-color:#CC7700;}
+.saturday .day-tag{background:#CC7700;color:var(--white);}
 .day-header{display:flex;align-items:stretch;}
 .day-tag{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;padding:10px 12px;display:flex;align-items:center;writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);min-width:34px;}
 .friday .day-tag{background:var(--red);color:var(--white);}
@@ -523,7 +525,8 @@ const ALL_GAMES = [
   {id:'w2-cb',week:2,day:'FRI',date:'JUNE 5',division:COMPETITIVE,home:null,away:null,bye:"Bat Attitudes"},
   {id:'w2-f1',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Drunk Bunts",away:"Dugout Divas",bye:null},
   {id:'w2-f2',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Pitches Be Crazy",away:"Resting Pitch Face",bye:null},
-  {id:'w2-f3',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Peaches",away:"Yo Mamas",bye:null},
+  {id:'w2-f3',week:2,day:'SAT',date:'JUNE 6 (Sat)',division:FRIENDLY,home:"Peaches",away:"Yo Mamas",bye:null},
+  {id:'w2-f4',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Ball Busters",away:"Pitch Please",bye:null},
   // WEEK 3
   {id:'w3-c1',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
   {id:'w3-c2',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
@@ -531,13 +534,15 @@ const ALL_GAMES = [
   {id:'w3-f1',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Ball Busters",away:"Base-ic Pitches",bye:null},
   {id:'w3-f2',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Salty Pitches",away:"Pitch Please",bye:null},
   {id:'w3-f3',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Dugout Divas",away:"Pitches Be Crazy",bye:null},
+  {id:'w3-f4',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Peaches",away:"Resting Pitch Face",bye:null},
   // WEEK 4
   {id:'w4-c1',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
   {id:'w4-c2',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
   {id:'w4-cb',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
   {id:'w4-f1',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Drunk Bunts",away:"Resting Pitch Face",bye:null},
   {id:'w4-f2',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitch Please",bye:null},
-  {id:'w4-f3',week:4,day:'SAT',date:'JUNE 20',division:FRIENDLY,home:"Peaches",away:"Salty Pitches",bye:null},
+  {id:'w4-f3',week:4,day:'SAT',date:'JUNE 20 (Sat)',division:FRIENDLY,home:"Peaches",away:"Salty Pitches",bye:null},
+  {id:'w4-f4',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Dugout Divas",away:"Pitches Be Crazy",bye:null},
   // WEEK 5
   {id:'w5-c1',week:5,day:'FRI',date:'JUNE 26',division:COMPETITIVE,home:"Bombshells",away:"Bat Attitudes",bye:null},
   {id:'w5-c2',week:5,day:'FRI',date:'JUNE 26',division:COMPETITIVE,home:"Sons of Pitches",away:"I'd Hit That",bye:null},
@@ -545,6 +550,7 @@ const ALL_GAMES = [
   {id:'w5-f1',week:5,day:'SUN',date:'JUNE 28',division:FRIENDLY,home:"Yo Mamas",away:"Resting Pitch Face",bye:null},
   {id:'w5-f2',week:5,day:'SUN',date:'JUNE 28',division:FRIENDLY,home:"Ball Busters",away:"Dugout Divas",bye:null},
   {id:'w5-f3',week:5,day:'SUN',date:'JUNE 28',division:FRIENDLY,home:"Drunk Bunts",away:"Pitches Be Crazy",bye:null},
+  {id:'w5-f4',week:5,day:'SUN',date:'JUNE 28',division:FRIENDLY,home:"Salty Pitches",away:"Base-ic Pitches",bye:null},
   // WEEK 6
   {id:'w6-c1',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
   {id:'w6-c2',week:6,day:'FRI',date:'JULY 3',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
@@ -552,6 +558,7 @@ const ALL_GAMES = [
   {id:'w6-f1',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Drunk Bunts",away:"Base-ic Pitches",bye:null},
   {id:'w6-f2',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Yo Mamas",away:"Pitches Be Crazy",bye:null},
   {id:'w6-f3',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Peaches",away:"Pitch Please",bye:null},
+  {id:'w6-f4',week:6,day:'SUN',date:'JULY 5',division:FRIENDLY,home:"Salty Pitches",away:"Resting Pitch Face",bye:null},
   // WEEK 7
   {id:'w7-c1',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Sons of Pitches",away:"Bat Attitudes",bye:null},
   {id:'w7-c2',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Bombshells",away:"Free Ballers",bye:null},
@@ -559,6 +566,7 @@ const ALL_GAMES = [
   {id:'w7-f1',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Dugout Divas",away:"Resting Pitch Face",bye:null},
   {id:'w7-f2',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Ball Busters",away:"Salty Pitches",bye:null},
   {id:'w7-f3',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Yo Mamas",away:"Base-ic Pitches",bye:null},
+  {id:'w7-f4',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Pitch Please",away:"Drunk Bunts",bye:null},
   // WEEK 8
   {id:'w8-c1',week:8,day:'FRI',date:'JULY 31',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
   {id:'w8-c2',week:8,day:'FRI',date:'JULY 31',division:COMPETITIVE,home:"Sons of Pitches",away:"Bombshells",bye:null},
@@ -566,6 +574,7 @@ const ALL_GAMES = [
   {id:'w8-f1',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Pitches Be Crazy",away:"Pitch Please",bye:null},
   {id:'w8-f2',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Peaches",away:"Dugout Divas",bye:null},
   {id:'w8-f3',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Drunk Bunts",away:"Salty Pitches",bye:null},
+  {id:'w8-f4',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Ball Busters",away:"Yo Mamas",bye:null},
   // WEEK 9
   {id:'w9-c1',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
   {id:'w9-c2',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:"Sons of Pitches",away:"I'd Hit That",bye:null},
@@ -573,6 +582,7 @@ const ALL_GAMES = [
   {id:'w9-f1',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Ball Busters",away:"Resting Pitch Face",bye:null},
   {id:'w9-f2',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitches Be Crazy",bye:null},
   {id:'w9-f3',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Dugout Divas",away:"Yo Mamas",bye:null},
+  {id:'w9-f4',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Peaches",away:"Drunk Bunts",bye:null},
 ];
 
 const FRIENDLY_TEAMS = ["Drunk Bunts","Peaches","Ball Busters","Dugout Divas","Yo Mamas","Base-ic Pitches","Salty Pitches","Pitches Be Crazy","Resting Pitch Face","Pitch Please"];
@@ -767,11 +777,12 @@ function renderSchedule() {
   weeks.forEach(wk => {
     const friGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye);
     const friBye = ALL_GAMES.find(g => g.week === wk && g.day === 'FRI' && g.bye);
-    const sunGames = ALL_GAMES.filter(g => g.week === wk && (g.day === 'SUN' || g.day === 'SAT') && !g.bye);
+    const satGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SAT' && !g.bye);
+    const sunGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SUN' && !g.bye);
     const friDate = friGames[0]?.date || friBye?.date || '';
+    const satDate = satGames[0]?.date || '';
     const sunDate = sunGames[0]?.date || '';
-    // Build subtitle showing all unique dates
-    const sunDates = [...new Set(sunGames.map(g => g.date))].join(' & ');
+    const sunDates = sunDate;
     const allGames = [...friGames, ...sunGames];
     const playedCount = allGames.filter(g => getGameScore(g.id)).length;
     const isOpen = wk === openWeek;
@@ -791,7 +802,7 @@ function renderSchedule() {
         <div class="week-num">0${wk}</div>
         <div class="week-title-block">
           <div class="week-label">Week ${wk}</div>
-          <div class="week-sublabel">${friDate}${friDate && sunDates ? ' &bull; ' : ''}${sunDates}</div>
+          <div class="week-sublabel">${friDate}${friDate && (satDate || sunDate) ? ' &bull; ' : ''}${satDate ? satDate + (sunDate ? ' &bull; ' : '') : ''}${sunDate}</div>
           ${playedCount > 0 ? `<div class="week-score-preview">${Array(playedCount).fill('<div class="week-score-pip"></div>').join('')}<span style="font-family:Oswald,sans-serif;font-size:10px;letter-spacing:1px;color:var(--red);margin-left:2px;">${playedCount} result${playedCount>1?'s':''}</span></div>` : ''}
         </div>
         <div class="week-chevron">▾</div>
@@ -812,18 +823,29 @@ function renderSchedule() {
               ${friBye ? `<div class="bye-row"><div class="bye-label">BYE</div><div class="bye-team">${friBye.bye}</div></div>` : ''}
             </div>
           </div>
-          <div class="day-panel sunday">
-            <div class="day-header">
-              <div class="day-tag">Sunday</div>
-              <div class="day-date-block">
-                <div class="day-name">Sunday</div>
-                <div class="day-date">${sunDates}</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            ${satGames.length > 0 ? `<div class="day-panel saturday">
+              <div class="day-header">
+                <div class="day-tag">Sat</div>
+                <div class="day-date-block">
+                  <div class="day-name">Saturday</div>
+                  <div class="day-date" style="color:#CC7700;">${satDate}</div>
+                </div>
               </div>
-            </div>
-            <div class="division-label">Friendly Division</div>
-            <div class="games-list">
-              ${sunGames.map(renderGameCard).join('')}
-            </div>
+              <div class="division-label">Friendly Division</div>
+              <div class="games-list">${satGames.map(renderGameCard).join('')}</div>
+            </div>` : ''}
+            ${sunGames.length > 0 ? `<div class="day-panel sunday">
+              <div class="day-header">
+                <div class="day-tag">Sunday</div>
+                <div class="day-date-block">
+                  <div class="day-name">Sunday</div>
+                  <div class="day-date">${sunDate}</div>
+                </div>
+              </div>
+              <div class="division-label">Friendly Division</div>
+              <div class="games-list">${sunGames.map(renderGameCard).join('')}</div>
+            </div>` : ''}
           </div>
         </div>
       </div>
