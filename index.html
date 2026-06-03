@@ -526,9 +526,9 @@ const ALL_GAMES = [
   {id:'w2-c2',week:2,day:'FRI',date:'JUNE 5',division:COMPETITIVE,home:"Bombshells",away:"Free Ballers",bye:null},
   {id:'w2-cb',week:2,day:'FRI',date:'JUNE 5',division:COMPETITIVE,home:null,away:null,bye:"Bat Attitudes"},
   {id:'w2-f1',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Drunk Bunts",away:"Dugout Divas",bye:null},
-  {id:'w2-f2',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Pitches Be Crazy",away:"Resting Pitch Face",bye:null},
-  {id:'w2-f3',week:2,day:'SAT',date:'JUNE 6 (Sat)',division:FRIENDLY,home:"Peaches",away:"Yo Mamas",bye:null},
-  {id:'w2-f4',week:2,day:'SAT',date:'JUNE 6 (Sat)',division:FRIENDLY,home:"Ball Busters",away:"Pitch Please",bye:null},
+  {id:'w2-f2',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Pitches Be Crazy",away:"Resting Pitch Face",bye:null,rescheduled:"RESCHEDULED TO JULY 10"},
+  {id:'w2-f3',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Peaches",away:"Yo Mamas",bye:null},
+  {id:'w2-f4',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Ball Busters",away:"Pitch Please",bye:null},
   // WEEK 3
   {id:'w3-c1',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
   {id:'w3-c2',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
@@ -565,6 +565,7 @@ const ALL_GAMES = [
   {id:'w7-c1',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Sons of Pitches",away:"Bat Attitudes",bye:null},
   {id:'w7-c2',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Bombshells",away:"Free Ballers",bye:null},
   {id:'w7-cb',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:null,away:null,bye:"I'd Hit That"},
+  {id:'w7-f5',week:7,day:'FRI',date:'JULY 10',division:FRIENDLY,home:"Pitches Be Crazy",away:"Resting Pitch Face",bye:null},
   {id:'w7-f1',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Dugout Divas",away:"Resting Pitch Face",bye:null},
   {id:'w7-f2',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Ball Busters",away:"Salty Pitches",bye:null},
   {id:'w7-f3',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Yo Mamas",away:"Base-ic Pitches",bye:null},
@@ -729,10 +730,14 @@ function renderGameCard(g) {
   const hasRealScore = sc && sc.homeScore !== null && sc.homeScore !== undefined && sc.homeScore !== -1;
   const homeWin = hasRealScore && sc.homeScore > sc.awayScore;
   const awayWin = hasRealScore && sc.awayScore > sc.homeScore;
+  const isRescheduled = g.rescheduled;
 
   let scoreHtml = '';
   if (hasRealScore) {
     scoreHtml = `<div class="score-display"><span class="score-num">${sc.homeScore}</span><span class="score-dash">—</span><span class="score-num">${sc.awayScore}</span></div>`;
+  }
+  if (isRescheduled) {
+    scoreHtml = `<div class="vs-text" style="font-size:11px;color:#fff;text-align:center;line-height:1.2;">RESCHEDULED<br>${g.rescheduled.replace('RESCHEDULED TO ','')}</div>`;
   }
 
   return `
@@ -742,8 +747,8 @@ function renderGameCard(g) {
         ${homeWin ? softball() : ''}
         <div class="team-name">${g.home}</div>
       </div>
-      <div class="vs-block">
-        ${hasRealScore ? scoreHtml : `<div class="vs-text">VS</div><div class="vs-dots"><div class="vs-dot"></div><div class="vs-dot"></div><div class="vs-dot"></div></div>`}
+      <div class="vs-block" style="${isRescheduled ? 'background:#888;' : ''}">
+        ${isRescheduled ? scoreHtml : hasRealScore ? scoreHtml : `<div class="vs-text">VS</div><div class="vs-dots"><div class="vs-dot"></div><div class="vs-dot"></div><div class="vs-dot"></div></div>`}
       </div>
       <div class="team-block ${awayWin?'winner-highlight':''}">
         ${awayWin ? softball() : ''}
@@ -777,7 +782,8 @@ function renderSchedule() {
   }
 
   weeks.forEach(wk => {
-    const friGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye);
+    const friGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye && g.division === 'competitive');
+    const friFriendlyGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye && g.division === 'friendly');
     const friBye = ALL_GAMES.find(g => g.week === wk && g.day === 'FRI' && g.bye);
     const satGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SAT' && !g.bye);
     const sunGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SUN' && !g.bye);
@@ -826,6 +832,7 @@ function renderSchedule() {
               ${friGames.map(renderGameCard).join('')}
               ${friBye ? `<div class="bye-row"><div class="bye-label">BYE</div><div class="bye-team">${friBye.bye}</div></div>` : ''}
             </div>
+            ${friFriendlyGames.length > 0 ? `<div class="division-label" style="background:#FFF8E7;color:#7A5C00;">Friendly Division (Makeup)</div><div class="games-list">${friFriendlyGames.map(renderGameCard).join('')}</div>` : ''}
           </div>
           <div style="display:flex;flex-direction:column;gap:14px;">
             ${satGames.length > 0 ? `<div class="day-panel saturday">
