@@ -530,7 +530,7 @@ const ALL_GAMES = [
   {id:'w2-f3',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Peaches",away:"Yo Mamas",bye:null},
   {id:'w2-f4',week:2,day:'SUN',date:'JUNE 7',division:FRIENDLY,home:"Ball Busters",away:"Pitch Please",bye:null},
   // WEEK 3
-  {id:'w3-c1',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
+  {id:'w3-c1',week:3,day:'SUN',date:'JUNE 14',division:COMPETITIVE,home:"I'd Hit That",away:"Bombshells",bye:null},
   {id:'w3-c2',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
   {id:'w3-cb',week:3,day:'FRI',date:'JUNE 12',division:COMPETITIVE,home:null,away:null,bye:"Bat Attitudes"},
   {id:'w3-f1',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Ball Busters",away:"Base-ic Pitches",bye:null},
@@ -755,6 +755,7 @@ function renderGameCard(g) {
         <div class="team-name">${g.away}</div>
       </div>
     </div>
+    ${g.division === 'competitive' && g.day !== 'FRI' ? `<div style="background:#CC0000;padding:4px 10px;"><span style="font-family:Oswald,sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:white;">⚡ COMPETITIVE DIVISION</span></div>` : ''}
     <div class="game-footer">
       <div class="game-footer-cell"><div class="footer-label">Time</div><div class="footer-value">${sc && sc.gameTime ? sc.gameTime : ''}</div></div>
       <div class="game-footer-cell"><div class="footer-label">Field</div><div class="footer-value">${sc && sc.gameField ? sc.gameField : ''}</div></div>
