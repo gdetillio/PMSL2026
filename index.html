@@ -67,6 +67,8 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 /* DAY PANEL */
 .day-panel{background:var(--white);border-top:5px solid var(--black);overflow:hidden;}
 .day-panel.friday{border-top-color:var(--red);}
+.day-panel.tuesday{border-top-color:#1a6b3c;}
+.tuesday .day-tag{background:#1a6b3c;color:var(--white);}
 .day-panel.thursday{border-top-color:#5B2D8E;}
 .thursday .day-tag{background:#5B2D8E;color:var(--white);}
 .day-panel.saturday{border-top-color:#CC7700;}
@@ -540,11 +542,11 @@ const ALL_GAMES = [
   {id:'w3-f3',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Dugout Divas",away:"Pitches Be Crazy",bye:null},
   {id:'w3-f4',week:3,day:'SUN',date:'JUNE 14',division:FRIENDLY,home:"Peaches",away:"Resting Pitch Face",bye:null},
   // WEEK 4
-  {id:'w4-c1',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
+  {id:'w4-c1',week:4,day:'TUE',date:'JUNE 23 (Tue)',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
   {id:'w4-c2',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null,rescheduled:"RESCHEDULED - DATE TBD"},
   {id:'w4-cb',week:4,day:'FRI',date:'JUNE 19',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
   {id:'w4-f1',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Drunk Bunts",away:"Resting Pitch Face",bye:null},
-  {id:'w4-f2',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitch Please",bye:null},
+  {id:'w4-f2',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitch Please",bye:null,rescheduled:"RESCHEDULED - DATE TBD"},
   {id:'w4-f3',week:4,day:'THU',date:'JUNE 18 (Thu)',division:FRIENDLY,home:"Peaches",away:"Salty Pitches",bye:null},
   {id:'w4-f4',week:4,day:'SUN',date:'JUNE 21',division:FRIENDLY,home:"Dugout Divas",away:"Pitches Be Crazy",bye:null},
   // WEEK 5
@@ -788,11 +790,13 @@ function renderSchedule() {
     const friGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye && g.division === 'competitive');
     const friFriendlyGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'FRI' && !g.bye && g.division === 'friendly');
     const friBye = ALL_GAMES.find(g => g.week === wk && g.day === 'FRI' && g.bye);
+    const tueGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'TUE' && !g.bye);
     const thuGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'THU' && !g.bye);
     const satGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SAT' && !g.bye);
     const sunGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'SUN' && !g.bye);
     const monGames = ALL_GAMES.filter(g => g.week === wk && g.day === 'MON' && !g.bye);
     const friDate = friGames[0]?.date || friBye?.date || '';
+    const tueDate = tueGames[0]?.date || '';
     const thuDate = thuGames[0]?.date || '';
     const satDate = satGames[0]?.date || '';
     const sunDate = sunGames[0]?.date || '';
@@ -883,6 +887,17 @@ function renderSchedule() {
               </div>
               <div class="division-label">Friendly Division</div>
               <div class="games-list">${monGames.map(renderGameCard).join('')}</div>
+            </div>` : ''}
+            ${tueGames.length > 0 ? `<div class="day-panel tuesday">
+              <div class="day-header">
+                <div class="day-tag">Tue</div>
+                <div class="day-date-block">
+                  <div class="day-name">Tuesday</div>
+                  <div class="day-date" style="color:#1a6b3c;">${tueDate}</div>
+                </div>
+              </div>
+              <div class="division-label">Competitive Division</div>
+              <div class="games-list">${tueGames.map(renderGameCard).join('')}</div>
             </div>` : ''}
           </div>
         </div>
