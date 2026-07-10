@@ -293,11 +293,8 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
     </radialGradient>
   </defs>
   <circle cx="50" cy="50" r="47" fill="url(#ballgrad)" stroke="#d4c97a" stroke-width="1.5"/>
-  <!-- Left stitch curve -->
   <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <!-- Right stitch curve -->
   <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <!-- Left stitch marks -->
   <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
@@ -305,7 +302,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
   <line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <!-- Right stitch marks -->
   <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
@@ -324,11 +320,8 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
     </radialGradient>
   </defs>
   <circle cx="50" cy="50" r="47" fill="url(#ballgrad)" stroke="#d4c97a" stroke-width="1.5"/>
-  <!-- Left stitch curve -->
   <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <!-- Right stitch curve -->
   <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <!-- Left stitch marks -->
   <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
@@ -336,7 +329,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
   <line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <!-- Right stitch marks -->
   <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
   <line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
@@ -572,11 +564,11 @@ const ALL_GAMES = [
   {id:'w7-c1',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Sons of Pitches",away:"Bat Attitudes",bye:null},
   {id:'w7-c2',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:"Bombshells",away:"Free Ballers",bye:null},
   {id:'w7-cb',week:7,day:'FRI',date:'JULY 10',division:COMPETITIVE,home:null,away:null,bye:"I'd Hit That"},
+  {id:'w7-c3',week:7,day:'MON',date:'JULY 13 (Mon)',division:COMPETITIVE,home:"Sons of Pitches",away:"Free Ballers",bye:null},
   {id:'w7-f5',week:7,day:'FRI',date:'JULY 10',division:FRIENDLY,home:"Pitches Be Crazy",away:"Resting Pitch Face",bye:null},
   {id:'w7-f1',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Dugout Divas",away:"Resting Pitch Face",bye:null},
   {id:'w7-f2',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Ball Busters",away:"Salty Pitches",bye:null},
   {id:'w7-f3',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Yo Mamas",away:"Base-ic Pitches",bye:null},
-  {id:'w7-f4',week:7,day:'SUN',date:'JULY 12',division:FRIENDLY,home:"Pitch Please",away:"Drunk Bunts",bye:null},
   // WEEK 8
   {id:'w8-c1',week:8,day:'FRI',date:'JULY 31',division:COMPETITIVE,home:"I'd Hit That",away:"Bat Attitudes",bye:null},
   {id:'w8-c2',week:8,day:'FRI',date:'JULY 31',division:COMPETITIVE,home:"Sons of Pitches",away:"Bombshells",bye:null},
@@ -586,6 +578,8 @@ const ALL_GAMES = [
   {id:'w8-f3',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Drunk Bunts",away:"Salty Pitches",bye:null},
   {id:'w8-f4',week:8,day:'SUN',date:'AUG 2',division:FRIENDLY,home:"Ball Busters",away:"Yo Mamas",bye:null},
   // WEEK 9
+  {id:'w7-f4',week:9,day:'WED',date:'AUG 5 (Wed)',division:FRIENDLY,home:"Pitch Please",away:"Drunk Bunts",bye:null},
+  {id:'w9-f5',week:9,day:'WED',date:'AUG 5 (Wed)',division:FRIENDLY,home:"Yo Mamas",away:"Dugout Divas",bye:null},
   {id:'w9-c1',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:"Bat Attitudes",away:"Free Ballers",bye:null},
   {id:'w9-c2',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:"Sons of Pitches",away:"I'd Hit That",bye:null},
   {id:'w9-cb',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
@@ -614,7 +608,6 @@ async function loadAllScores() {
     });
     const rows = await res.json();
     if (Array.isArray(rows)) {
-      // Merge into cache rather than replace, so pending saves aren't wiped
       rows.forEach(r => {
         scoreCache[r.id] = {
           homeScore: (r.home_score === -1 || r.home_score === null) ? null : r.home_score,
@@ -633,7 +626,6 @@ function getGameScore(id) {
 }
 
 async function upsertGame(id, homeScore, awayScore, gameTime, gameField) {
-  // Update cache immediately
   scoreCache[id] = {
     homeScore: homeScore !== null ? homeScore : (scoreCache[id]?.homeScore ?? null),
     awayScore: awayScore !== null ? awayScore : (scoreCache[id]?.awayScore ?? null),
@@ -781,7 +773,6 @@ function renderSchedule() {
   const weeks = [1,2,3,4,5,6,7,10,8,11,9];
   let html = '';
 
-  // Find the current/next upcoming week based on scores entered
   let openWeek = 1;
   for (let wk = 1; wk <= 9; wk++) {
     const games = ALL_GAMES.filter(g => g.week === wk && !g.bye);
@@ -805,13 +796,11 @@ function renderSchedule() {
     const thuDate = thuGames[0]?.date || '';
     const satDate = satGames[0]?.date || '';
     const sunDate = sunGames[0]?.date || '';
-    const sunDates = sunDate;
     const monDate = monGames[0]?.date || '';
     const allGames = [...friGames, ...sunGames];
     const playedCount = allGames.filter(g => getGameScore(g.id)).length;
     const isOpen = wk === openWeek;
 
-    // After week 8, add skip notice
     if (wk === 9) {
       html += `
       <div class="skip-notice" style="margin:16px 0 8px;">
@@ -832,91 +821,56 @@ function renderSchedule() {
         <div class="week-chevron">▾</div>
       </div>
       <div class="week-body ${isOpen?'open':''}" id="week-body-${wk}">
-        <div class="days-row">
-          <div class="day-panel friday">
-            <div class="day-header">
-              <div class="day-tag">Friday</div>
-              <div class="day-date-block">
-                <div class="day-name">Friday</div>
-                <div class="day-date">${friDate}</div>
-              </div>
-            </div>
-            <div class="division-label">Competitive Division</div>
-            <div class="games-list">
-              ${friGames.map(renderGameCard).join('')}
-              ${friBye ? `<div class="bye-row"><div class="bye-label">BYE</div><div class="bye-team">${friBye.bye}</div></div>` : ''}
-            </div>
-            ${friFriendlyGames.length > 0 ? `<div class="division-label" style="background:#FFF8E7;color:#7A5C00;">Friendly Division (Makeup)</div><div class="games-list">${friFriendlyGames.map(renderGameCard).join('')}</div>` : ''}
-          </div>
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            ${thuGames.length > 0 ? `<div class="day-panel thursday">
-              <div class="day-header">
-                <div class="day-tag">Thu</div>
-                <div class="day-date-block">
-                  <div class="day-name">Thursday</div>
-                  <div class="day-date" style="color:#5B2D8E;">${thuDate}</div>
+        ${(()=>{
+          // Build a list of day panels with a sortable date value, then render in order
+          const DAY_ORDER = {MON:1,TUE:2,WED:3,THU:4,FRI:5,SAT:6,SUN:7};
+          const MONTH_ORDER = {JAN:1,FEB:2,MAR:3,APR:4,MAY:5,JUN:6,JUNE:6,JUL:7,JULY:7,AUG:8,SEP:9,OCT:10,NOV:11,DEC:12};
+          function dateSort(day, dateStr) {
+            // Parse "JUNE 7", "AUG 5 (Wed)" etc into a sortable number
+            const parts = dateStr.replace(/\(.*\)/,'').trim().split(' ');
+            const mon = MONTH_ORDER[parts[0].toUpperCase()] || 0;
+            const d = parseInt(parts[1]) || 0;
+            return mon * 100 + d;
+          }
+          const panels = [];
+          // Friday competitive
+          if (friGames.length > 0 || friBye) {
+            panels.push({
+              day:'FRI', dateStr:friDate, sortKey: dateSort('FRI', friDate),
+              html: `<div class="day-panel friday">
+                <div class="day-header">
+                  <div class="day-tag">Friday</div>
+                  <div class="day-date-block">
+                    <div class="day-name">Friday</div>
+                    <div class="day-date">${friDate}</div>
+                  </div>
                 </div>
-              </div>
-              <div class="division-label">Friendly Division</div>
-              <div class="games-list">${thuGames.map(renderGameCard).join('')}</div>
-            </div>` : ''}
-            ${sunGames.length > 0 ? `<div class="day-panel sunday">
-              <div class="day-header">
-                <div class="day-tag">Sunday</div>
-                <div class="day-date-block">
-                  <div class="day-name">Sunday</div>
-                  <div class="day-date">${sunDate}</div>
+                <div class="division-label">Competitive Division</div>
+                <div class="games-list">
+                  ${friGames.map(renderGameCard).join('')}
+                  ${friBye ? `<div class="bye-row"><div class="bye-label">BYE</div><div class="bye-team">${friBye.bye}</div></div>` : ''}
                 </div>
-              </div>
-              <div class="division-label">Friendly Division</div>
-              <div class="games-list">${sunGames.map(renderGameCard).join('')}</div>
-            </div>` : ''}
-            ${satGames.length > 0 ? `<div class="day-panel saturday">
-              <div class="day-header">
-                <div class="day-tag">Sat</div>
-                <div class="day-date-block">
-                  <div class="day-name">Saturday</div>
-                  <div class="day-date" style="color:#CC7700;">${satDate}</div>
-                </div>
-              </div>
-              <div class="division-label">Friendly Division</div>
-              <div class="games-list">${satGames.map(renderGameCard).join('')}</div>
-            </div>` : ''}
-            ${monGames.length > 0 ? `<div class="day-panel monday">
-              <div class="day-header">
-                <div class="day-tag">Mon</div>
-                <div class="day-date-block">
-                  <div class="day-name">Monday</div>
-                  <div class="day-date" style="color:#333;">${monDate}</div>
-                </div>
-              </div>
-              <div class="division-label">Friendly Division</div>
-              <div class="games-list">${monGames.map(renderGameCard).join('')}</div>
-            </div>` : ''}
-            ${tueGames.length > 0 ? `<div class="day-panel tuesday">
-              <div class="day-header">
-                <div class="day-tag">Tue</div>
-                <div class="day-date-block">
-                  <div class="day-name">Tuesday</div>
-                  <div class="day-date" style="color:#1a6b3c;">${tueDate}</div>
-                </div>
-              </div>
-              <div class="division-label">Competitive Division</div>
-              <div class="games-list">${tueGames.map(renderGameCard).join('')}</div>
-            </div>` : ''}
-            ${wedGames.length > 0 ? `<div class="day-panel wednesday">
-              <div class="day-header">
-                <div class="day-tag">Wed</div>
-                <div class="day-date-block">
-                  <div class="day-name">Wednesday</div>
-                  <div class="day-date" style="color:#8B4513;">${wedDate}</div>
-                </div>
-              </div>
-              <div class="division-label">Friendly Division</div>
-              <div class="games-list">${wedGames.map(renderGameCard).join('')}</div>
-            </div>` : ''}
-          </div>
-        </div>
+                ${friFriendlyGames.length > 0 ? `<div class="division-label" style="background:#FFF8E7;color:#7A5C00;">Friendly Division (Makeup)</div><div class="games-list">${friFriendlyGames.map(renderGameCard).join('')}</div>` : ''}
+              </div>`
+            });
+          }
+          if (monGames.length > 0) panels.push({ day:'MON', dateStr:monDate, sortKey:dateSort('MON',monDate), html:`<div class="day-panel monday"><div class="day-header"><div class="day-tag">Mon</div><div class="day-date-block"><div class="day-name">Monday</div><div class="day-date" style="color:#333;">${monDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${monGames.map(renderGameCard).join('')}</div></div>` });
+          if (tueGames.length > 0) panels.push({ day:'TUE', dateStr:tueDate, sortKey:dateSort('TUE',tueDate), html:`<div class="day-panel tuesday"><div class="day-header"><div class="day-tag">Tue</div><div class="day-date-block"><div class="day-name">Tuesday</div><div class="day-date" style="color:#1a6b3c;">${tueDate}</div></div></div><div class="division-label">Competitive Division</div><div class="games-list">${tueGames.map(renderGameCard).join('')}</div></div>` });
+          if (wedGames.length > 0) panels.push({ day:'WED', dateStr:wedDate, sortKey:dateSort('WED',wedDate), html:`<div class="day-panel wednesday"><div class="day-header"><div class="day-tag">Wed</div><div class="day-date-block"><div class="day-name">Wednesday</div><div class="day-date" style="color:#8B4513;">${wedDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${wedGames.map(renderGameCard).join('')}</div></div>` });
+          if (thuGames.length > 0) panels.push({ day:'THU', dateStr:thuDate, sortKey:dateSort('THU',thuDate), html:`<div class="day-panel thursday"><div class="day-header"><div class="day-tag">Thu</div><div class="day-date-block"><div class="day-name">Thursday</div><div class="day-date" style="color:#5B2D8E;">${thuDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${thuGames.map(renderGameCard).join('')}</div></div>` });
+          if (satGames.length > 0) panels.push({ day:'SAT', dateStr:satDate, sortKey:dateSort('SAT',satDate), html:`<div class="day-panel saturday"><div class="day-header"><div class="day-tag">Sat</div><div class="day-date-block"><div class="day-name">Saturday</div><div class="day-date" style="color:#CC7700;">${satDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${satGames.map(renderGameCard).join('')}</div></div>` });
+          if (sunGames.length > 0) panels.push({ day:'SUN', dateStr:sunDate, sortKey:dateSort('SUN',sunDate), html:`<div class="day-panel sunday"><div class="day-header"><div class="day-tag">Sunday</div><div class="day-date-block"><div class="day-name">Sunday</div><div class="day-date">${sunDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${sunGames.map(renderGameCard).join('')}</div></div>` });
+          panels.sort((a,b) => a.sortKey - b.sortKey);
+          const isSingle = panels.length > 2 || wedGames.length > 0;
+          if (isSingle) {
+            return `<div class="days-row single">${panels.map(p=>p.html).join('')}</div>`;
+          } else {
+            // Standard 2-col: left=fri, right=everything else
+            const left = panels.filter(p=>p.day==='FRI').map(p=>p.html).join('');
+            const right = panels.filter(p=>p.day!=='FRI').map(p=>p.html).join('');
+            return `<div class="days-row"><div>${left}</div><div style="display:flex;flex-direction:column;gap:14px;">${right}</div></div>`;
+          }
+        })()}
       </div>
     </div>`;
   });
@@ -1092,7 +1046,6 @@ function renderAdminGames() {
 
     games.forEach(g => {
       const sc = getGameScore(g.id);
-      const dayLabel = g.day === 'FRI' ? 'FRI (Competitive)' : 'SUN (Friendly)';
       const hasScore = sc && sc.homeScore !== null && sc.homeScore !== -1;
       const scoreStr = hasScore ? `${sc.homeScore} – ${sc.awayScore}` : 'Click to enter score';
       html += `
@@ -1134,7 +1087,6 @@ function openModal(gameId) {
   document.getElementById('input-time').value = sc ? sc.gameTime || '' : '';
   document.getElementById('input-field').value = sc ? sc.gameField || '' : '';
 
-  // Show time/field only for admin
   const tfSection = document.getElementById('time-field-section');
   tfSection.style.display = isAdmin ? 'block' : 'none';
   tfSection.style.visibility = isAdmin ? 'visible' : 'hidden';
@@ -1159,7 +1111,6 @@ async function saveScore() {
   const gameTime = document.getElementById('input-time').value.trim();
   const gameField = document.getElementById('input-field').value.trim();
 
-  // Allow saving time/field even without scores
   const hs = homeVal !== '' ? parseInt(homeVal) : null;
   const as = awayVal !== '' ? parseInt(awayVal) : null;
 
@@ -1192,18 +1143,14 @@ async function clearScore() {
   renderStandings();
 }
 
-// Close modal on overlay click
 document.getElementById('score-modal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
-// Load scores from Supabase then render
 loadAllScores().then(() => {
   renderSchedule();
-  // Poll for updates every 30 seconds so all viewers see live scores
   setInterval(async () => {
-    // Don't refresh while admin modal is open
     if (document.getElementById('score-modal').classList.contains('open')) return;
     await loadAllScores();
     const activePage = document.querySelector('.page.active')?.id;
@@ -1214,4 +1161,3 @@ loadAllScores().then(() => {
 </script>
 </body>
 </html>
-
