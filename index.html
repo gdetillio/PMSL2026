@@ -12,8 +12,6 @@
   --off-white:#f5f5f0;--gray:#888;--light-gray:#e8e8e8;--mid-gray:#ccc;
 }
 body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color:var(--black);min-height:100vh;}
-
-/* NAV */
 .top-nav{background:var(--black);position:sticky;top:0;z-index:100;}
 .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);letter-spacing:2px;padding:14px 0;cursor:pointer;}
@@ -23,11 +21,7 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .nav-btn:hover,.nav-btn.active{color:var(--white);}
 .nav-btn.active{border-bottom:3px solid var(--red);}
 .nav-admin{color:var(--red) !important;}
-
-/* PAGES */
 .page{display:none;}.page.active{display:block;}
-
-/* HEADER */
 .site-header{background:var(--black);padding:0;position:relative;overflow:hidden;}
 .header-stripe{background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 40px,var(--red-dark) 40px,var(--red-dark) 80px);height:6px;}
 .header-inner{max-width:1100px;margin:0 auto;padding:48px 24px 40px;display:flex;flex-direction:column;align-items:center;gap:8px;}
@@ -42,11 +36,7 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .div-badge{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;padding:6px 18px;border:1.5px solid;text-transform:uppercase;}
 .div-badge.friendly{border-color:var(--white);color:var(--white);}
 .div-badge.competitive{border-color:var(--red);color:var(--red);}
-
-/* CONTAINER */
 .container{max-width:1100px;margin:0 auto;padding:48px 24px;}
-
-/* WEEK BLOCKS */
 .week-block{margin-bottom:8px;}
 .week-header{display:flex;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;background:var(--white);border:1.5px solid var(--light-gray);transition:border-color .2s;user-select:none;}
 .week-header:hover{border-color:var(--red);}
@@ -63,15 +53,12 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .week-body.open{display:block;}
 .days-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .days-row.single{grid-template-columns:1fr;}
-
-/* DAY PANEL */
 .day-panel{background:var(--white);border-top:5px solid var(--black);overflow:hidden;}
 .day-panel.friday{border-top-color:var(--red);}
 .day-panel.tuesday{border-top-color:#1a6b3c;}
 .tuesday .day-tag{background:#1a6b3c;color:var(--white);}
 .day-panel.wednesday{border-top-color:#8B4513;}
 .wednesday .day-tag{background:#8B4513;color:var(--white);}
-.tuesday .day-tag{background:#1a6b3c;color:var(--white);}
 .day-panel.thursday{border-top-color:#5B2D8E;}
 .thursday .day-tag{background:#5B2D8E;color:var(--white);}
 .day-panel.saturday{border-top-color:#CC7700;}
@@ -88,8 +75,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .friday .day-date{color:var(--red);}
 .division-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gray);padding:5px 14px;background:var(--off-white);border-bottom:1px solid var(--light-gray);}
 .games-list{padding:10px;display:flex;flex-direction:column;gap:8px;}
-
-/* GAME CARD */
 .game-card{border:1.5px solid var(--light-gray);overflow:hidden;}
 .game-main{display:grid;grid-template-columns:1fr auto 1fr;}
 .team-block{padding:10px 10px;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:64px;justify-content:center;background:var(--white);}
@@ -103,31 +88,20 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .game-footer-cell:first-child{border-right:1px solid var(--light-gray);}
 .footer-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--gray);}
 .footer-value{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--black);min-height:17px;border-bottom:1px solid var(--light-gray);padding-bottom:1px;}
-
-/* SCORE DISPLAY */
 .score-display{display:flex;align-items:center;justify-content:center;gap:6px;padding:4px 8px;background:var(--black);}
 .score-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);line-height:1;}
 .score-dash{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gray);}
-.score-final{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--red);margin-top:1px;}
 .winner-highlight{background:var(--off-white);}
 .winner-highlight .team-name{color:var(--red);}
-
-/* BYE ROW */
 .bye-row{margin:6px 10px;padding:7px 10px;background:var(--off-white);border-left:3px solid var(--light-gray);display:flex;align-items:center;gap:8px;}
 .bye-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gray);}
 .bye-team{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gray);letter-spacing:1px;}
-
-/* WEEK DIVIDER */
 .week-divider{height:1px;background:repeating-linear-gradient(90deg,var(--light-gray) 0,var(--light-gray) 8px,transparent 8px,transparent 16px);margin-bottom:48px;}
-
-/* SKIP NOTICE */
 .skip-notice{background:var(--black);color:var(--white);text-align:center;padding:28px 24px;margin-bottom:48px;position:relative;overflow:hidden;}
 .skip-notice::before,.skip-notice::after{content:'';position:absolute;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 20px,transparent 20px,transparent 40px);}
 .skip-notice::before{top:0;}.skip-notice::after{bottom:0;}
 .skip-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;color:var(--white);}
 .skip-subtitle{font-family:'Oswald',sans-serif;font-size:12px;font-weight:400;letter-spacing:3px;color:var(--red);margin-top:4px;}
-
-/* PLAYOFFS */
 .section-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;color:var(--red);margin-bottom:6px;}
 .section-heading{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--black);margin-bottom:28px;border-bottom:4px solid var(--red);padding-bottom:14px;}
 .playoffs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px;}
@@ -143,8 +117,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .playoff-seed.red{background:var(--red);}
 .playoff-seed.black{background:var(--black);}
 .playoff-vs-text{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;color:var(--gray);letter-spacing:1px;}
-
-/* CHAMP BANNER */
 .champ-banner{background:var(--red);padding:36px 24px;text-align:center;position:relative;overflow:hidden;}
 .champ-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.05) 10px,rgba(0,0,0,.05) 20px);}
 .champ-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;color:rgba(255,255,255,.7);position:relative;}
@@ -154,8 +126,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .champ-game{background:rgba(0,0,0,.3);padding:14px;text-align:center;}
 .champ-game-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.6);margin-bottom:5px;}
 .champ-game-matchup{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;line-height:1.2;}
-
-/* ── STANDINGS PAGE ── */
 .standings-container{max-width:900px;margin:0 auto;padding:48px 24px;}
 .standings-header{background:var(--black);padding:36px 24px;margin-bottom:32px;text-align:center;}
 .standings-header h1{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--white);letter-spacing:2px;line-height:1;}
@@ -184,8 +154,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .standings-note{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--gray);margin-top:8px;font-style:italic;}
 .playoff-legend{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gray);}
 .legend-box{width:12px;height:12px;background:rgba(204,0,0,.08);border-left:3px solid var(--red);flex-shrink:0;}
-
-/* ── ADMIN PAGE ── */
 .admin-container{max-width:800px;margin:0 auto;padding:48px 24px;}
 .admin-header{background:var(--black);padding:28px 24px;margin-bottom:28px;}
 .admin-header h1{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--white);letter-spacing:2px;}
@@ -209,8 +177,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .admin-score-display{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gray);}
 .admin-score-display.entered{color:var(--black);}
 .admin-bye-row{padding:8px 14px;font-family:'Oswald',sans-serif;font-size:12px;color:var(--gray);letter-spacing:2px;background:var(--off-white);border:1.5px solid var(--light-gray);margin-bottom:8px;}
-
-/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
 .modal{background:var(--white);width:90%;max-width:460px;padding:28px;position:relative;}
@@ -233,8 +199,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .btn-cancel{padding:12px 16px;background:var(--white);color:var(--black);border:2px solid var(--black);font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;cursor:pointer;}
 .btn-clear{padding:12px 16px;background:var(--white);color:var(--gray);border:2px solid var(--light-gray);font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;cursor:pointer;}
 .logout-btn{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gray);border:1px solid var(--light-gray);padding:6px 14px;cursor:pointer;background:none;float:right;margin-bottom:16px;}
-
-/* ── RULES PAGE ── */
 .rules-section{margin-bottom:32px;}
 .rules-section-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--black);padding-bottom:8px;border-bottom:3px solid var(--red);margin-bottom:12px;}
 .rule-item{font-family:'Barlow Condensed',sans-serif;font-size:16px;color:#333;padding:10px 14px;border-bottom:1px solid var(--light-gray);line-height:1.5;}
@@ -244,12 +208,9 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .rules-spirit{background:var(--black);padding:32px;text-align:center;margin-top:8px;}
 .rules-spirit-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--red);margin-bottom:12px;}
 .rules-spirit-body{font-family:'Barlow Condensed',sans-serif;font-size:17px;color:rgba(255,255,255,.8);line-height:1.6;font-style:italic;max-width:600px;margin:0 auto;}
-
-/* FOOTER */
 .site-footer{background:var(--black);padding:20px 24px;text-align:center;}
 .footer-text{font-family:'Oswald',sans-serif;font-size:11px;font-weight:400;letter-spacing:3px;color:var(--gray);}
 .footer-heart{color:var(--red);}
-
 @media(max-width:700px){
   .days-row{grid-template-columns:1fr;}
   .playoffs-grid{grid-template-columns:1fr;}
@@ -265,7 +226,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="top-nav">
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('schedule')">PMSL <span>2026</span></div>
@@ -278,68 +238,31 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
   </div>
 </nav>
 
-<!-- SCHEDULE PAGE -->
 <div class="page active" id="page-schedule">
   <header class="site-header">
     <div class="header-stripe"></div>
     <div class="header-inner">
       <div class="softball-row">
         <svg class="softball-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <radialGradient id="ballgrad" cx="38%" cy="35%" r="60%">
-      <stop offset="0%" stop-color="#fffef0"/>
-      <stop offset="60%" stop-color="#f5f0d0"/>
-      <stop offset="100%" stop-color="#e8e0b0"/>
-    </radialGradient>
-  </defs>
-  <circle cx="50" cy="50" r="47" fill="url(#ballgrad)" stroke="#d4c97a" stroke-width="1.5"/>
-  <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="20" y1="50" x2="14" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="80" y1="50" x2="86" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="80" y1="59" x2="86" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="77" y1="68" x2="83" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-</svg>
+          <defs><radialGradient id="ballgrad" cx="38%" cy="35%" r="60%"><stop offset="0%" stop-color="#fffef0"/><stop offset="60%" stop-color="#f5f0d0"/><stop offset="100%" stop-color="#e8e0b0"/></radialGradient></defs>
+          <circle cx="50" cy="50" r="47" fill="url(#ballgrad)" stroke="#d4c97a" stroke-width="1.5"/>
+          <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+          <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="50" x2="14" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+          <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="50" x2="86" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="59" x2="86" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="77" y1="68" x2="83" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+        </svg>
         <div class="league-eyebrow">2026 Season</div>
         <svg class="softball-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <radialGradient id="ballgrad" cx="38%" cy="35%" r="60%">
-      <stop offset="0%" stop-color="#fffef0"/>
-      <stop offset="60%" stop-color="#f5f0d0"/>
-      <stop offset="100%" stop-color="#e8e0b0"/>
-    </radialGradient>
-  </defs>
-  <circle cx="50" cy="50" r="47" fill="url(#ballgrad)" stroke="#d4c97a" stroke-width="1.5"/>
-  <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
-  <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="20" y1="50" x2="14" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="80" y1="50" x2="86" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="80" y1="59" x2="86" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="77" y1="68" x2="83" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-  <line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
-</svg>
+          <defs><radialGradient id="ballgrad2" cx="38%" cy="35%" r="60%"><stop offset="0%" stop-color="#fffef0"/><stop offset="60%" stop-color="#f5f0d0"/><stop offset="100%" stop-color="#e8e0b0"/></radialGradient></defs>
+          <circle cx="50" cy="50" r="47" fill="url(#ballgrad2)" stroke="#d4c97a" stroke-width="1.5"/>
+          <path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+          <line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="23" y1="31" x2="17" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="41" x2="14" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="50" x2="14" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="59" x2="14" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="23" y1="68" x2="17" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+          <line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="77" y1="31" x2="83" y2="32" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="41" x2="86" y2="41" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="50" x2="86" y2="50" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="59" x2="86" y2="59" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="77" y1="68" x2="83" y2="69" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/><line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="2" stroke-linecap="round"/>
+        </svg>
       </div>
       <h1 class="main-title">PLAINEDGE<span>MOMS SOFTBALL</span>LEAGUE</h1>
-      <p class="season-dates">MAY 29 &mdash; AUGUST 21, 2026 &bull; LONG ISLAND, NY</p>
+      <p class="season-dates">MAY 29 &mdash; AUGUST 23, 2026 &bull; LONG ISLAND, NY</p>
       <div class="division-badges">
         <div class="div-badge friendly">Friendly Division &bull; 10 Teams</div>
         <div class="div-badge competitive">Competitive Division &bull; 5 Teams</div>
@@ -350,28 +273,22 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
   <div class="container" id="schedule-container"></div>
 </div>
 
-<!-- STANDINGS PAGE -->
 <div class="page" id="page-standings">
   <div class="standings-header">
-    <div class="header-stripe"></div>
-    <br>
+    <div class="header-stripe"></div><br>
     <h1>League Standings</h1>
-    <p>Plainedge Moms Softball League &bull; 2026</p>
-    <br>
+    <p>Plainedge Moms Softball League &bull; 2026</p><br>
     <div class="header-stripe"></div>
   </div>
   <div class="standings-container" id="standings-container"></div>
 </div>
 
-<!-- ADMIN PAGE -->
 <div class="page" id="page-admin">
   <div class="admin-container">
     <div class="admin-header">
       <h1>Score Entry</h1>
       <p>Plainedge Moms Softball League &bull; 2026</p>
     </div>
-
-    <!-- LOGIN -->
     <div id="login-section">
       <div class="login-box">
         <h2>Enter Password</h2>
@@ -381,8 +298,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
         <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--gray);margin-top:12px;font-style:italic;">Coaches: enter your team password to submit scores.<br>League admin: enter your password for full access.</div>
       </div>
     </div>
-
-    <!-- ADMIN PANEL -->
     <div class="admin-panel" id="admin-panel">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
         <div id="admin-level-badge" style="font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 12px;"></div>
@@ -393,18 +308,14 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
   </div>
 </div>
 
-<!-- RULES PAGE -->
 <div class="page" id="page-rules">
   <div class="standings-header">
-    <div class="header-stripe"></div>
-    <br>
+    <div class="header-stripe"></div><br>
     <h1>League Rules</h1>
-    <p>Plainedge Moms Softball League &bull; 2026</p>
-    <br>
+    <p>Plainedge Moms Softball League &bull; 2026</p><br>
     <div class="header-stripe"></div>
   </div>
   <div class="standings-container">
-
     <div class="rules-section">
       <div class="rules-section-title">General Rules</div>
       <div class="rule-item"><span class="rule-label">Game Length</span> Games are 1.5 hours or 6 innings, whichever comes first. No extra innings — games may end in a tie.</div>
@@ -413,14 +324,12 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
       <div class="rule-item"><span class="rule-label">Catcher Equipment</span> Catchers must wear a mask at minimum.</div>
       <div class="rule-item"><span class="rule-label">Bats</span> Softball bats only. Baseball bats are strictly prohibited — no exceptions.</div>
     </div>
-
     <div class="rules-section">
       <div class="rules-section-title">Pitching Rules</div>
       <div class="rule-item">The pitch must be released with an underhand motion at a moderate speed. <em>No windmill pitching.</em></div>
       <div class="rule-item">Pitch speed is left to the umpire's discretion. Remember — these are friendly games!</div>
       <div class="rule-item">The umpire will warn any pitcher delivering a pitch deemed excessively fast. Repeated violations may result in further action at the umpire's discretion.</div>
     </div>
-
     <div class="rules-section">
       <div class="rules-section-title">Rules of Play</div>
       <div class="rule-item"><span class="rule-label">Fielding</span> Teams may use a maximum of 10 players on defense. A team must start and finish a game with at least 8 players.</div>
@@ -431,7 +340,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
       <div class="rule-item"><span class="rule-label">Stealing</span> Stealing is not permitted.</div>
       <div class="rule-item"><span class="rule-label">No Run Rule</span> There is no run rule. However, a team significantly behind has the right to end the game early. Please be respectful.</div>
     </div>
-
     <div class="rules-section">
       <div class="rules-section-title">Baserunning Rules</div>
       <div class="rule-item"><span class="rule-label">Courtesy Runners</span> May be used at any time for any reason. The runner must be the last recorded out or a bench sub. The batter must reach first base before a courtesy runner is used.</div>
@@ -440,14 +348,12 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
       <div class="rule-item"><span class="rule-label">Dead Balls</span> Runners advance one (1) base from their position when the ball is declared dead.</div>
       <div class="rule-item"><span class="rule-label">Double First Base</span> Runners from home must use the orange safety base. Only runners continuing to second may use the white inside base (unless the throw pulls the fielder off or comes from foul territory). Outs may only be recorded on the white inside base.</div>
     </div>
-
     <div class="rules-section">
       <div class="rules-section-title">Substitutions</div>
       <div class="rule-item"><span class="rule-label">Defensive</span> Unlimited defensive substitutions are permitted at any time.</div>
-      <div class="rule-item"><span class="rule-label">Lineup Spot Partners</span> Two players may share the same lineup spot and rotate each time through the order. Example: in spot #6, Player A and Player B alternate at bat each time through.</div>
+      <div class="rule-item"><span class="rule-label">Lineup Spot Partners</span> Two players may share the same lineup spot and rotate each time through the order.</div>
       <div class="rule-item"><span class="rule-label">Important</span> A player may not appear in more than one lineup spot.</div>
     </div>
-
     <div class="rules-section">
       <div class="rules-section-title">Playoffs</div>
       <div class="rule-item">The top 4 teams from each division qualify for the playoffs.</div>
@@ -455,16 +361,13 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
       <div class="rule-item"><span class="rule-label">Semifinals</span> #1 vs #4 and #2 vs #3 in each division.</div>
       <div class="rule-item"><span class="rule-label">Championship</span> Semifinal winners meet in the championship game.</div>
     </div>
-
     <div class="rules-spirit">
       <div class="rules-spirit-title">The Spirit of This League</div>
       <div class="rules-spirit-body">Our goal is to give the moms a place to have a little fun and maybe show their kids what they can do on the field — a time where families and friends can cheer for you. The league reserves the right to amend these rules at any time.</div>
     </div>
-
   </div>
 </div>
 
-<!-- SCORE MODAL -->
 <div class="modal-overlay" id="score-modal">
   <div class="modal">
     <div class="modal-title" id="modal-title">Game Details</div>
@@ -482,14 +385,8 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
     </div>
     <div class="time-field-inputs" id="time-field-section">
       <div class="time-field-row">
-        <div class="tf-group">
-          <div class="tf-label">Game Time</div>
-          <input type="text" class="tf-input" id="input-time" placeholder="e.g. 6:30 PM">
-        </div>
-        <div class="tf-group">
-          <div class="tf-label">Field</div>
-          <input type="text" class="tf-input" id="input-field" placeholder="e.g. Field 3">
-        </div>
+        <div class="tf-group"><div class="tf-label">Game Time</div><input type="text" class="tf-input" id="input-time" placeholder="e.g. 6:30 PM"></div>
+        <div class="tf-group"><div class="tf-label">Field</div><input type="text" class="tf-input" id="input-field" placeholder="e.g. Field 3"></div>
       </div>
     </div>
     <div class="modal-actions">
@@ -505,7 +402,6 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 </footer>
 
 <script>
-// ── DATA ──────────────────────────────────────────────────────────────────────
 const FRIENDLY = 'friendly';
 const COMPETITIVE = 'competitive';
 const PASSWORD_ADMIN = 'gina';
@@ -513,7 +409,7 @@ const PASSWORD_COACH = '2026';
 let isAdmin = false;
 
 const ALL_GAMES = [
-    // WEEK 1
+  // WEEK 1
   {id:'w1-c1',week:1,day:'FRI',date:'MAY 29',division:COMPETITIVE,home:"I'd Hit That",away:"Free Ballers",bye:null},
   {id:'w1-c2',week:1,day:'FRI',date:'MAY 29',division:COMPETITIVE,home:"Sons of Pitches",away:"Bombshells",bye:null},
   {id:'w1-cb',week:1,day:'FRI',date:'MAY 29',division:COMPETITIVE,home:null,away:null,bye:"Bat Attitudes"},
@@ -585,19 +481,15 @@ const ALL_GAMES = [
   {id:'w9-cb',week:9,day:'FRI',date:'AUG 7',division:COMPETITIVE,home:null,away:null,bye:"Bombshells"},
   {id:'w9-f1',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Ball Busters",away:"Resting Pitch Face",bye:null},
   {id:'w9-f2',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Base-ic Pitches",away:"Pitches Be Crazy",bye:null},
-  {id:'w9-f3',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Dugout Divas",away:"Yo Mamas",bye:null},
   {id:'w9-f4',week:9,day:'SUN',date:'AUG 9',division:FRIENDLY,home:"Peaches",away:"Drunk Bunts",bye:null},
 ];
 
 const FRIENDLY_TEAMS = ["Drunk Bunts","Peaches","Ball Busters","Dugout Divas","Yo Mamas","Base-ic Pitches","Salty Pitches","Pitches Be Crazy","Resting Pitch Face","Pitch Please"];
 const COMPETITIVE_TEAMS = ["Sons of Pitches","I'd Hit That","Bombshells","Bat Attitudes","Free Ballers"];
 
-// ── SUPABASE CONFIG ───────────────────────────────────────────────────────────
 const SUPABASE_URL = 'https://xxqcmmztwbwhvqczhvim.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_3Mg-dddr8brz68o2izHQ8g_gA22bBpX';
 const TABLE = 'game_scores';
-
-// In-memory cache so the page feels instant
 let scoreCache = {};
 let cacheLoaded = false;
 
@@ -621,9 +513,7 @@ async function loadAllScores() {
   } catch(e) { console.error('Load scores error:', e); }
 }
 
-function getGameScore(id) {
-  return scoreCache[id] || null;
-}
+function getGameScore(id) { return scoreCache[id] || null; }
 
 async function upsertGame(id, homeScore, awayScore, gameTime, gameField) {
   scoreCache[id] = {
@@ -643,46 +533,26 @@ async function upsertGame(id, homeScore, awayScore, gameTime, gameField) {
   try {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
       method: 'POST',
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'resolution=merge-duplicates,return=representation'
-      },
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=representation' },
       body: JSON.stringify(body)
     });
-    if (!res.ok) {
-      const err = await res.text();
-      console.error('Save error:', err);
-      alert('Save failed: ' + err);
-    }
+    if (!res.ok) { const err = await res.text(); console.error('Save error:', err); alert('Save failed: ' + err); }
   } catch(e) { console.error('Save error:', e); alert('Save failed - check connection'); }
 }
 
-async function setGameScore(id, homeScore, awayScore, gameTime, gameField) {
-  await upsertGame(id, homeScore, awayScore, gameTime, gameField);
-}
-
-async function saveTimeField(id, gameTime, gameField) {
-  await upsertGame(id, null, null, gameTime, gameField);
-}
-
+async function setGameScore(id, homeScore, awayScore, gameTime, gameField) { await upsertGame(id, homeScore, awayScore, gameTime, gameField); }
+async function saveTimeField(id, gameTime, gameField) { await upsertGame(id, null, null, gameTime, gameField); }
 async function clearGameScore(id) {
   delete scoreCache[id];
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}?id=eq.${id}`, {
-      method: 'DELETE',
-      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
-    });
+    await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}?id=eq.${id}`, { method: 'DELETE', headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } });
   } catch(e) { console.error('Clear score error:', e); }
 }
 
-// ── STANDINGS CALCULATION ────────────────────────────────────────────────────
 function calcStandings(division) {
   const teams = division === FRIENDLY ? FRIENDLY_TEAMS : COMPETITIVE_TEAMS;
   const stats = {};
   teams.forEach(t => stats[t] = {w:0,l:0,ties:0,gp:0,rs:0,ra:0});
-
   ALL_GAMES.filter(g => g.division === division && !g.bye).forEach(g => {
     const sc = getGameScore(g.id);
     if (!sc || sc.homeScore === null || sc.homeScore === -1) return;
@@ -694,20 +564,13 @@ function calcStandings(division) {
     else if (as > hs) { stats[g.away].w++; stats[g.home].l++; }
     else { stats[g.home].ties++; stats[g.away].ties++; }
   });
-
   return teams.map(t => ({
-    team: t,
-    ...stats[t],
+    team: t, ...stats[t],
     rd: stats[t].rs - stats[t].ra,
     pct: stats[t].gp > 0 ? ((stats[t].w + stats[t].ties * 0.5) / stats[t].gp) : 0
-  })).sort((a,b) => {
-    if (b.w !== a.w) return b.w - a.w;
-    if (b.ties !== a.ties) return b.ties - a.ties;
-    return b.rd - a.rd;
-  });
+  })).sort((a,b) => { if (b.w !== a.w) return b.w - a.w; if (b.ties !== a.ties) return b.ties - a.ties; return b.rd - a.rd; });
 }
 
-// ── PAGE NAVIGATION ───────────────────────────────────────────────────────────
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -719,7 +582,6 @@ function showPage(name) {
   window.scrollTo(0,0);
 }
 
-// ── SCHEDULE RENDER ───────────────────────────────────────────────────────────
 function softball() {
   return `<svg width="16" height="16" viewBox="0 0 100 100" style="vertical-align:middle;margin-right:4px;" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="47" fill="#f5f0d0" stroke="#d4c97a" stroke-width="1.5"/><path d="M 28 15 C 10 30, 10 70, 28 85" fill="none" stroke="#CC0000" stroke-width="4" stroke-linecap="round"/><path d="M 72 15 C 90 30, 90 70, 72 85" fill="none" stroke="#CC0000" stroke-width="4" stroke-linecap="round"/><line x1="28" y1="22" x2="22" y2="25" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="21" y1="40" x2="15" y2="40" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="21" y1="60" x2="15" y2="60" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="28" y1="78" x2="22" y2="75" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="72" y1="22" x2="78" y2="25" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="79" y1="40" x2="85" y2="40" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="79" y1="60" x2="85" y2="60" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/><line x1="72" y1="78" x2="78" y2="75" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/></svg>`;
 }
@@ -730,15 +592,9 @@ function renderGameCard(g) {
   const homeWin = hasRealScore && sc.homeScore > sc.awayScore;
   const awayWin = hasRealScore && sc.awayScore > sc.homeScore;
   const isRescheduled = g.rescheduled;
-
   let scoreHtml = '';
-  if (hasRealScore) {
-    scoreHtml = `<div class="score-display"><span class="score-num">${sc.homeScore}</span><span class="score-dash">—</span><span class="score-num">${sc.awayScore}</span></div>`;
-  }
-  if (isRescheduled) {
-    scoreHtml = `<div class="vs-text" style="font-size:11px;color:#fff;text-align:center;line-height:1.2;">RESCHEDULED<br>${g.rescheduled.replace('RESCHEDULED TO ','')}</div>`;
-  }
-
+  if (hasRealScore) scoreHtml = `<div class="score-display"><span class="score-num">${sc.homeScore}</span><span class="score-dash">—</span><span class="score-num">${sc.awayScore}</span></div>`;
+  if (isRescheduled) scoreHtml = `<div class="vs-text" style="font-size:11px;color:#fff;text-align:center;line-height:1.2;">RESCHEDULED<br>${g.rescheduled.replace('RESCHEDULED TO ','')}</div>`;
   return `
   <div class="game-card">
     <div class="game-main">
@@ -763,21 +619,17 @@ function renderGameCard(g) {
 }
 
 function toggleWeek(wk) {
-  const header = document.getElementById('week-header-'+wk);
-  const body = document.getElementById('week-body-'+wk);
-  header.classList.toggle('open');
-  body.classList.toggle('open');
+  document.getElementById('week-header-'+wk).classList.toggle('open');
+  document.getElementById('week-body-'+wk).classList.toggle('open');
 }
 
 function renderSchedule() {
   const weeks = [1,2,3,4,5,6,7,10,8,11,9];
   let html = '';
-
   let openWeek = 1;
   for (let wk = 1; wk <= 9; wk++) {
     const games = ALL_GAMES.filter(g => g.week === wk && !g.bye);
-    const anyPlayed = games.some(g => getGameScore(g.id));
-    if (anyPlayed) openWeek = wk;
+    if (games.some(g => getGameScore(g.id))) openWeek = wk;
   }
 
   weeks.forEach(wk => {
@@ -822,50 +674,28 @@ function renderSchedule() {
       </div>
       <div class="week-body ${isOpen?'open':''}" id="week-body-${wk}">
         ${(()=>{
-          // Build a list of day panels with a sortable date value, then render in order
-          const DAY_ORDER = {MON:1,TUE:2,WED:3,THU:4,FRI:5,SAT:6,SUN:7};
           const MONTH_ORDER = {JAN:1,FEB:2,MAR:3,APR:4,MAY:5,JUN:6,JUNE:6,JUL:7,JULY:7,AUG:8,SEP:9,OCT:10,NOV:11,DEC:12};
-          function dateSort(day, dateStr) {
-            // Parse "JUNE 7", "AUG 5 (Wed)" etc into a sortable number
+          function dateSort(dateStr) {
             const parts = dateStr.replace(/\(.*\)/,'').trim().split(' ');
             const mon = MONTH_ORDER[parts[0].toUpperCase()] || 0;
             const d = parseInt(parts[1]) || 0;
             return mon * 100 + d;
           }
           const panels = [];
-          // Friday competitive
           if (friGames.length > 0 || friBye) {
-            panels.push({
-              day:'FRI', dateStr:friDate, sortKey: dateSort('FRI', friDate),
-              html: `<div class="day-panel friday">
-                <div class="day-header">
-                  <div class="day-tag">Friday</div>
-                  <div class="day-date-block">
-                    <div class="day-name">Friday</div>
-                    <div class="day-date">${friDate}</div>
-                  </div>
-                </div>
-                <div class="division-label">Competitive Division</div>
-                <div class="games-list">
-                  ${friGames.map(renderGameCard).join('')}
-                  ${friBye ? `<div class="bye-row"><div class="bye-label">BYE</div><div class="bye-team">${friBye.bye}</div></div>` : ''}
-                </div>
-                ${friFriendlyGames.length > 0 ? `<div class="division-label" style="background:#FFF8E7;color:#7A5C00;">Friendly Division (Makeup)</div><div class="games-list">${friFriendlyGames.map(renderGameCard).join('')}</div>` : ''}
-              </div>`
-            });
+            panels.push({ day:'FRI', sortKey: dateSort(friDate), html: `<div class="day-panel friday"><div class="day-header"><div class="day-tag">Friday</div><div class="day-date-block"><div class="day-name">Friday</div><div class="day-date">${friDate}</div></div></div><div class="division-label">Competitive Division</div><div class="games-list">${friGames.map(renderGameCard).join('')}${friBye ? `<div class="bye-row"><div class="bye-label">BYE</div><div class="bye-team">${friBye.bye}</div></div>` : ''}</div>${friFriendlyGames.length > 0 ? `<div class="division-label" style="background:#FFF8E7;color:#7A5C00;">Friendly Division (Makeup)</div><div class="games-list">${friFriendlyGames.map(renderGameCard).join('')}</div>` : ''}</div>` });
           }
-          if (monGames.length > 0) panels.push({ day:'MON', dateStr:monDate, sortKey:dateSort('MON',monDate), html:`<div class="day-panel monday"><div class="day-header"><div class="day-tag">Mon</div><div class="day-date-block"><div class="day-name">Monday</div><div class="day-date" style="color:#333;">${monDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${monGames.map(renderGameCard).join('')}</div></div>` });
-          if (tueGames.length > 0) panels.push({ day:'TUE', dateStr:tueDate, sortKey:dateSort('TUE',tueDate), html:`<div class="day-panel tuesday"><div class="day-header"><div class="day-tag">Tue</div><div class="day-date-block"><div class="day-name">Tuesday</div><div class="day-date" style="color:#1a6b3c;">${tueDate}</div></div></div><div class="division-label">Competitive Division</div><div class="games-list">${tueGames.map(renderGameCard).join('')}</div></div>` });
-          if (wedGames.length > 0) panels.push({ day:'WED', dateStr:wedDate, sortKey:dateSort('WED',wedDate), html:`<div class="day-panel wednesday"><div class="day-header"><div class="day-tag">Wed</div><div class="day-date-block"><div class="day-name">Wednesday</div><div class="day-date" style="color:#8B4513;">${wedDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${wedGames.map(renderGameCard).join('')}</div></div>` });
-          if (thuGames.length > 0) panels.push({ day:'THU', dateStr:thuDate, sortKey:dateSort('THU',thuDate), html:`<div class="day-panel thursday"><div class="day-header"><div class="day-tag">Thu</div><div class="day-date-block"><div class="day-name">Thursday</div><div class="day-date" style="color:#5B2D8E;">${thuDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${thuGames.map(renderGameCard).join('')}</div></div>` });
-          if (satGames.length > 0) panels.push({ day:'SAT', dateStr:satDate, sortKey:dateSort('SAT',satDate), html:`<div class="day-panel saturday"><div class="day-header"><div class="day-tag">Sat</div><div class="day-date-block"><div class="day-name">Saturday</div><div class="day-date" style="color:#CC7700;">${satDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${satGames.map(renderGameCard).join('')}</div></div>` });
-          if (sunGames.length > 0) panels.push({ day:'SUN', dateStr:sunDate, sortKey:dateSort('SUN',sunDate), html:`<div class="day-panel sunday"><div class="day-header"><div class="day-tag">Sunday</div><div class="day-date-block"><div class="day-name">Sunday</div><div class="day-date">${sunDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${sunGames.map(renderGameCard).join('')}</div></div>` });
+          if (monGames.length > 0) panels.push({ day:'MON', sortKey:dateSort(monDate), html:`<div class="day-panel monday"><div class="day-header"><div class="day-tag">Mon</div><div class="day-date-block"><div class="day-name">Monday</div><div class="day-date" style="color:#333;">${monDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${monGames.map(renderGameCard).join('')}</div></div>` });
+          if (tueGames.length > 0) panels.push({ day:'TUE', sortKey:dateSort(tueDate), html:`<div class="day-panel tuesday"><div class="day-header"><div class="day-tag">Tue</div><div class="day-date-block"><div class="day-name">Tuesday</div><div class="day-date" style="color:#1a6b3c;">${tueDate}</div></div></div><div class="division-label">Competitive Division</div><div class="games-list">${tueGames.map(renderGameCard).join('')}</div></div>` });
+          if (wedGames.length > 0) panels.push({ day:'WED', sortKey:dateSort(wedDate), html:`<div class="day-panel wednesday"><div class="day-header"><div class="day-tag">Wed</div><div class="day-date-block"><div class="day-name">Wednesday</div><div class="day-date" style="color:#8B4513;">${wedDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${wedGames.map(renderGameCard).join('')}</div></div>` });
+          if (thuGames.length > 0) panels.push({ day:'THU', sortKey:dateSort(thuDate), html:`<div class="day-panel thursday"><div class="day-header"><div class="day-tag">Thu</div><div class="day-date-block"><div class="day-name">Thursday</div><div class="day-date" style="color:#5B2D8E;">${thuDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${thuGames.map(renderGameCard).join('')}</div></div>` });
+          if (satGames.length > 0) panels.push({ day:'SAT', sortKey:dateSort(satDate), html:`<div class="day-panel saturday"><div class="day-header"><div class="day-tag">Sat</div><div class="day-date-block"><div class="day-name">Saturday</div><div class="day-date" style="color:#CC7700;">${satDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${satGames.map(renderGameCard).join('')}</div></div>` });
+          if (sunGames.length > 0) panels.push({ day:'SUN', sortKey:dateSort(sunDate), html:`<div class="day-panel sunday"><div class="day-header"><div class="day-tag">Sunday</div><div class="day-date-block"><div class="day-name">Sunday</div><div class="day-date">${sunDate}</div></div></div><div class="division-label">Friendly Division</div><div class="games-list">${sunGames.map(renderGameCard).join('')}</div></div>` });
           panels.sort((a,b) => a.sortKey - b.sortKey);
           const isSingle = panels.length > 2 || wedGames.length > 0;
           if (isSingle) {
             return `<div class="days-row single">${panels.map(p=>p.html).join('')}</div>`;
           } else {
-            // Standard 2-col: left=fri, right=everything else
             const left = panels.filter(p=>p.day==='FRI').map(p=>p.html).join('');
             const right = panels.filter(p=>p.day!=='FRI').map(p=>p.html).join('');
             return `<div class="days-row"><div>${left}</div><div style="display:flex;flex-direction:column;gap:14px;">${right}</div></div>`;
@@ -875,7 +705,6 @@ function renderSchedule() {
     </div>`;
   });
 
-  // Playoffs
   html += `
   <div class="week-divider" style="margin-top:48px;"></div>
   <div class="playoffs-section" style="margin-top:48px;">
@@ -914,8 +743,8 @@ function renderSchedule() {
     </div>
     <div class="champ-banner">
       <div class="champ-eyebrow">The Main Event</div>
-      <div class="champ-title">Championship Friday</div>
-      <div class="champ-date">August 21, 2026 &bull; Under the Lights</div>
+      <div class="champ-title">Championship Sunday</div>
+      <div class="champ-date">August 23, 2026 &bull; Under the Lights</div>
       <div class="champ-games">
         <div class="champ-game"><div class="champ-game-label">Friendly Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
         <div class="champ-game"><div class="champ-game-label">Competitive Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
@@ -926,183 +755,101 @@ function renderSchedule() {
   document.getElementById('schedule-container').innerHTML = html;
 }
 
-// ── STANDINGS RENDER ──────────────────────────────────────────────────────────
 function renderStandings() {
   const divs = [
     { name:'Friendly Division', division:FRIENDLY, barClass:'' },
     { name:'Competitive Division', division:COMPETITIVE, barClass:'black-bar' }
   ];
-
   let html = `<div class="playoff-legend"><div class="legend-box"></div> Playoff position (top 4)</div>`;
-
   divs.forEach(d => {
     const rows = calcStandings(d.division);
     const anyPlayed = rows.some(r => r.gp > 0);
-
-    html += `
-    <div class="standings-division">
-      <div class="div-heading">
-        <div class="div-heading-bar ${d.barClass}"></div>
-        <div class="div-heading-text">${d.name}</div>
-      </div>`;
-
+    html += `<div class="standings-division"><div class="div-heading"><div class="div-heading-bar ${d.barClass}"></div><div class="div-heading-text">${d.name}</div></div>`;
     if (!anyPlayed) {
       html += `<div class="no-games-msg">Season hasn't started yet &mdash; check back after the first games!</div>`;
     } else {
-      html += `
-      <table class="standings-table">
-        <thead>
-          <tr>
-            <th style="width:40px;">#</th>
-            <th>Team</th>
-            <th class="center">W</th>
-            <th class="center">L</th>
-            <th class="center">T</th>
-            <th class="center">GP</th>
-            <th class="center">Run Diff</th>
-          </tr>
-        </thead>
-        <tbody>`;
-
+      html += `<table class="standings-table"><thead><tr><th style="width:40px;">#</th><th>Team</th><th class="center">W</th><th class="center">L</th><th class="center">T</th><th class="center">GP</th><th class="center">Run Diff</th></tr></thead><tbody>`;
       rows.forEach((r, i) => {
         const isPlayoff = i < 4;
         const rdClass = r.rd > 0 ? 'rd-pos' : r.rd < 0 ? 'rd-neg' : '';
         const rdStr = r.rd > 0 ? `+${r.rd}` : `${r.rd}`;
-        html += `
-        <tr class="${isPlayoff ? 'playoff-spot' : ''}">
-          <td class="rank-cell ${i===0?'top':''}">${i+1}</td>
-          <td class="team-cell">${r.team}</td>
-          <td class="center win-cell">${r.w}</td>
-          <td class="center">${r.l}</td>
-          <td class="center">${r.ties}</td>
-          <td class="center record-cell">${r.gp}</td>
-          <td class="center ${rdClass}">${r.gp > 0 ? rdStr : '—'}</td>
-        </tr>`;
+        html += `<tr class="${isPlayoff ? 'playoff-spot' : ''}"><td class="rank-cell ${i===0?'top':''}">${i+1}</td><td class="team-cell">${r.team}</td><td class="center win-cell">${r.w}</td><td class="center">${r.l}</td><td class="center">${r.ties}</td><td class="center record-cell">${r.gp}</td><td class="center ${rdClass}">${r.gp > 0 ? rdStr : '—'}</td></tr>`;
       });
-
-      html += `</tbody></table>
-      <p class="standings-note">Shaded rows = playoff position &bull; Tiebreaker: run differential</p>`;
+      html += `</tbody></table><p class="standings-note">Shaded rows = playoff position &bull; Tiebreaker: run differential</p>`;
     }
-
     html += `</div>`;
   });
-
   document.getElementById('standings-container').innerHTML = html;
 }
 
-// ── ADMIN RENDER ──────────────────────────────────────────────────────────────
 let isLoggedIn = false;
 let currentGameId = null;
 
 function doLogin() {
   const val = document.getElementById('pwd-input').value;
-  if (val === PASSWORD_ADMIN) {
-    isLoggedIn = true;
-    isAdmin = true;
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('admin-panel').classList.add('visible');
-    renderAdminGames();
-  } else if (val === PASSWORD_COACH) {
-    isLoggedIn = true;
-    isAdmin = false;
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('admin-panel').classList.add('visible');
-    renderAdminGames();
-  } else {
-    document.getElementById('login-error').textContent = 'Incorrect password. Try again.';
-  }
+  if (val === PASSWORD_ADMIN) { isLoggedIn = true; isAdmin = true; }
+  else if (val === PASSWORD_COACH) { isLoggedIn = true; isAdmin = false; }
+  else { document.getElementById('login-error').textContent = 'Incorrect password. Try again.'; return; }
+  document.getElementById('login-section').style.display = 'none';
+  document.getElementById('admin-panel').classList.add('visible');
+  renderAdminGames();
 }
 
 function doLogout() {
-  isLoggedIn = false;
-  isAdmin = false;
+  isLoggedIn = false; isAdmin = false;
   document.getElementById('login-section').style.display = 'block';
   document.getElementById('admin-panel').classList.remove('visible');
   document.getElementById('pwd-input').value = '';
   document.getElementById('login-error').textContent = '';
 }
 
-function renderAdmin() {
-  if (isLoggedIn) renderAdminGames();
-}
+function renderAdmin() { if (isLoggedIn) renderAdminGames(); }
 
 function renderAdminGames() {
   const badge = document.getElementById('admin-level-badge');
-  if (badge) {
-    badge.textContent = isAdmin ? 'LEAGUE ADMIN — Full Access' : 'COACH — Score Entry Only';
-    badge.style.background = isAdmin ? '#CC0000' : '#0a0a0a';
-    badge.style.color = 'white';
-  }
+  if (badge) { badge.textContent = isAdmin ? 'LEAGUE ADMIN — Full Access' : 'COACH — Score Entry Only'; badge.style.background = isAdmin ? '#CC0000' : '#0a0a0a'; badge.style.color = 'white'; }
   const weeks = [1,2,3,4,5,6,7,10,8,11,9];
   let html = '';
-
   weeks.forEach(wk => {
     const games = ALL_GAMES.filter(g => g.week === wk && !g.bye);
     const byes = ALL_GAMES.filter(g => g.week === wk && g.bye);
     const dates = [...new Set(games.map(g => g.date))].join(' & ');
-
-    html += `<div class="admin-week">
-      <div class="admin-week-label">Week ${wk} &mdash; ${dates}</div>`;
-
+    html += `<div class="admin-week"><div class="admin-week-label">Week ${wk} &mdash; ${dates}</div>`;
     games.forEach(g => {
       const sc = getGameScore(g.id);
       const hasScore = sc && sc.homeScore !== null && sc.homeScore !== -1;
       const scoreStr = hasScore ? `${sc.homeScore} – ${sc.awayScore}` : 'Click to enter score';
-      html += `
-      <div class="admin-game-row ${hasScore?'played':''}" onclick="openModal('${g.id}')">
-        <div class="admin-team">${g.home}</div>
-        <div class="admin-vs">VS</div>
-        <div class="admin-team">${g.away}</div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
-          <div class="admin-score-display ${sc?'entered':''}">${scoreStr}</div>
-          ${sc && sc.gameTime ? `<div style="font-family:Oswald,sans-serif;font-size:11px;color:var(--gray);letter-spacing:1px;">${sc.gameTime}${sc.gameField ? ' &bull; '+sc.gameField : ''}</div>` : ''}
-        </div>
-      </div>`;
+      html += `<div class="admin-game-row ${hasScore?'played':''}" onclick="openModal('${g.id}')"><div class="admin-team">${g.home}</div><div class="admin-vs">VS</div><div class="admin-team">${g.away}</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;"><div class="admin-score-display ${sc?'entered':''}">${scoreStr}</div>${sc && sc.gameTime ? `<div style="font-family:Oswald,sans-serif;font-size:11px;color:var(--gray);letter-spacing:1px;">${sc.gameTime}${sc.gameField ? ' &bull; '+sc.gameField : ''}</div>` : ''}</div></div>`;
     });
-
-    byes.forEach(g => {
-      html += `<div class="admin-bye-row">BYE: ${g.bye}</div>`;
-    });
-
+    byes.forEach(g => { html += `<div class="admin-bye-row">BYE: ${g.bye}</div>`; });
     html += `</div>`;
   });
-
   document.getElementById('admin-games-list').innerHTML = html;
 }
 
-// ── MODAL ─────────────────────────────────────────────────────────────────────
 function openModal(gameId) {
   const g = ALL_GAMES.find(x => x.id === gameId);
   if (!g) return;
   currentGameId = gameId;
-
   document.getElementById('modal-title').textContent = 'Game Details';
   document.getElementById('modal-subtitle').textContent = `Week ${g.week} • ${g.date}`;
   document.getElementById('modal-home').textContent = g.home;
   document.getElementById('modal-away').textContent = g.away;
-
   const sc = getGameScore(gameId);
   document.getElementById('input-home').value = sc && sc.homeScore !== undefined && sc.homeScore !== null ? sc.homeScore : '';
   document.getElementById('input-away').value = sc && sc.awayScore !== undefined && sc.awayScore !== null ? sc.awayScore : '';
   document.getElementById('input-time').value = sc ? sc.gameTime || '' : '';
   document.getElementById('input-field').value = sc ? sc.gameField || '' : '';
-
   const tfSection = document.getElementById('time-field-section');
   tfSection.style.display = isAdmin ? 'block' : 'none';
   tfSection.style.visibility = isAdmin ? 'visible' : 'hidden';
   tfSection.style.height = isAdmin ? 'auto' : '0';
   tfSection.style.margin = isAdmin ? '' : '0';
   document.getElementById('score-modal').classList.add('open');
-  setTimeout(() => {
-    if (isAdmin) document.getElementById('input-time').focus();
-    else document.getElementById('input-home').focus();
-  }, 50);
+  setTimeout(() => { if (isAdmin) document.getElementById('input-time').focus(); else document.getElementById('input-home').focus(); }, 50);
 }
 
-function closeModal() {
-  document.getElementById('score-modal').classList.remove('open');
-  currentGameId = null;
-}
+function closeModal() { document.getElementById('score-modal').classList.remove('open'); currentGameId = null; }
 
 async function saveScore() {
   if (!currentGameId) return;
@@ -1110,44 +857,23 @@ async function saveScore() {
   const awayVal = document.getElementById('input-away').value.trim();
   const gameTime = document.getElementById('input-time').value.trim();
   const gameField = document.getElementById('input-field').value.trim();
-
   const hs = homeVal !== '' ? parseInt(homeVal) : null;
   const as = awayVal !== '' ? parseInt(awayVal) : null;
-
-  if ((homeVal !== '' && isNaN(hs)) || (awayVal !== '' && isNaN(as))) {
-    alert('Please enter valid scores.');
-    return;
-  }
-  if ((homeVal !== '' && awayVal === '') || (homeVal === '' && awayVal !== '')) {
-    alert('Please enter scores for both teams.');
-    return;
-  }
-
-  if (hs !== null && as !== null) {
-    await setGameScore(currentGameId, hs, as, gameTime, gameField);
-  } else {
-    await saveTimeField(currentGameId, gameTime, gameField);
-  }
-  closeModal();
-  renderAdminGames();
-  renderSchedule();
-  renderStandings();
+  if ((homeVal !== '' && isNaN(hs)) || (awayVal !== '' && isNaN(as))) { alert('Please enter valid scores.'); return; }
+  if ((homeVal !== '' && awayVal === '') || (homeVal === '' && awayVal !== '')) { alert('Please enter scores for both teams.'); return; }
+  if (hs !== null && as !== null) { await setGameScore(currentGameId, hs, as, gameTime, gameField); }
+  else { await saveTimeField(currentGameId, gameTime, gameField); }
+  closeModal(); renderAdminGames(); renderSchedule(); renderStandings();
 }
 
 async function clearScore() {
   if (!currentGameId) return;
   await clearGameScore(currentGameId);
-  closeModal();
-  renderAdminGames();
-  renderSchedule();
-  renderStandings();
+  closeModal(); renderAdminGames(); renderSchedule(); renderStandings();
 }
 
-document.getElementById('score-modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+document.getElementById('score-modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
 loadAllScores().then(() => {
   renderSchedule();
   setInterval(async () => {
