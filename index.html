@@ -105,18 +105,32 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .section-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;color:var(--red);margin-bottom:6px;}
 .section-heading{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--black);margin-bottom:28px;border-bottom:4px solid var(--red);padding-bottom:14px;}
 .playoffs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px;}
-.playoff-card{border:2px solid var(--black);overflow:hidden;}
+.playoff-card{border:2px solid var(--black);overflow:hidden;background:var(--white);}
 .playoff-card-header{padding:10px 14px;display:flex;flex-direction:column;}
 .playoff-card-header.red{background:var(--red);}
 .playoff-card-header.black{background:var(--black);}
 .playoff-event{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;line-height:1;}
 .playoff-date{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.6);margin-top:2px;}
-.playoff-matchups{padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+.playoff-matchups{padding:12px 14px;display:flex;flex-direction:column;gap:10px;}
 .playoff-matchup{display:flex;align-items:center;gap:8px;}
 .playoff-seed{font-family:'Bebas Neue',sans-serif;font-size:11px;padding:2px 6px;min-width:26px;text-align:center;flex-shrink:0;color:var(--white);}
 .playoff-seed.red{background:var(--red);}
 .playoff-seed.black{background:var(--black);}
 .playoff-vs-text{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;color:var(--gray);letter-spacing:1px;}
+.playoff-matchup-v{border:1.5px solid var(--light-gray);padding:8px 10px;}
+.pm-row{display:flex;align-items:center;gap:8px;padding:3px 0;}
+.pm-team{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.5px;line-height:1.1;flex:1;color:var(--black);}
+.pm-team.tbd{color:var(--mid-gray);}
+.pm-score{font-family:'Bebas Neue',sans-serif;font-size:20px;line-height:1;color:var(--gray);min-width:18px;text-align:right;}
+.pm-row.winner .pm-team{color:var(--red);}
+.pm-row.winner .pm-score{color:var(--red);}
+.pm-vs{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--mid-gray);padding-left:34px;}
+.pm-meta{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--gray);margin-top:6px;padding-top:5px;border-top:1px solid var(--light-gray);}
+.qualifier-row{display:flex;align-items:center;gap:8px;padding:3px 0;}
+.qualifier-seed{font-family:'Bebas Neue',sans-serif;font-size:11px;padding:2px 6px;min-width:22px;text-align:center;color:var(--white);background:var(--black);flex-shrink:0;}
+.qualifier-team{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.5px;color:var(--black);}
+.qualifier-div{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--gray);margin:8px 0 3px;}
+.qualifier-div:first-child{margin-top:0;}
 .champ-banner{background:var(--red);padding:36px 24px;text-align:center;position:relative;overflow:hidden;}
 .champ-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.05) 10px,rgba(0,0,0,.05) 20px);}
 .champ-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;color:rgba(255,255,255,.7);position:relative;}
@@ -124,8 +138,17 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .champ-date{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:3px;color:rgba(255,255,255,.8);position:relative;}
 .champ-games{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;position:relative;}
 .champ-game{background:rgba(0,0,0,.3);padding:14px;text-align:center;}
-.champ-game-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.6);margin-bottom:5px;}
+.champ-game-label{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.6);margin-bottom:8px;}
 .champ-game-matchup{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;line-height:1.2;}
+.champ-row{display:flex;align-items:center;justify-content:center;gap:10px;}
+.champ-team{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--white);line-height:1.15;}
+.champ-team.tbd{color:rgba(255,255,255,.55);font-size:17px;}
+.champ-score{font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(255,255,255,.85);line-height:1;}
+.champ-row.cl .champ-team,.champ-row.cl .champ-score{color:rgba(255,255,255,.5);}
+.champ-row.cw .champ-team,.champ-row.cw .champ-score{color:#FFD700;}
+.champ-vs{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.5);margin:3px 0;}
+.champ-crown{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#FFD700;margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.25);}
+.champ-meta{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.6);margin-top:8px;}
 .standings-container{max-width:900px;margin:0 auto;padding:48px 24px;}
 .standings-header{background:var(--black);padding:36px 24px;margin-bottom:32px;text-align:center;}
 .standings-header h1{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--white);letter-spacing:2px;line-height:1;}
@@ -169,13 +192,17 @@ body{background:var(--off-white);font-family:'Barlow Condensed',sans-serif;color
 .admin-panel.visible{display:block;}
 .admin-week{margin-bottom:28px;}
 .admin-week-label{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:var(--black);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--light-gray);}
+.admin-week-label.playoffs{color:var(--red);border-bottom-color:var(--red);}
 .admin-game-row{background:var(--white);border:1.5px solid var(--light-gray);padding:14px 16px;margin-bottom:8px;display:grid;grid-template-columns:1fr auto 1fr auto;align-items:center;gap:12px;cursor:pointer;transition:border-color .2s;}
 .admin-game-row:hover{border-color:var(--red);}
 .admin-game-row.played{border-color:var(--black);background:var(--off-white);}
+.admin-game-row.locked{opacity:.55;cursor:default;}
+.admin-game-row.locked:hover{border-color:var(--light-gray);}
 .admin-team{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.5px;}
 .admin-vs{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--red);}
 .admin-score-display{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gray);}
 .admin-score-display.entered{color:var(--black);}
+.admin-tag{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--gray);}
 .admin-bye-row{padding:8px 14px;font-family:'Oswald',sans-serif;font-size:12px;color:var(--gray);letter-spacing:2px;background:var(--off-white);border:1.5px solid var(--light-gray);margin-bottom:8px;}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
@@ -571,6 +598,163 @@ function calcStandings(division) {
   })).sort((a,b) => { if (b.w !== a.w) return b.w - a.w; if (b.ties !== a.ties) return b.ties - a.ties; return b.rd - a.rd; });
 }
 
+/* ============ PLAYOFF BRACKET (auto-populated from standings) ============ */
+
+const COMP_SF_DATE = 'FRIDAY, AUGUST 14';
+const FRIENDLY_SF_DATE = 'SUNDAY, AUGUST 16';
+const CHAMP_DATE = 'SUNDAY, AUGUST 23';
+
+function winnerOfGame(g) {
+  if (!g || !g.home || !g.away) return null;
+  const sc = getGameScore(g.id);
+  if (!sc || sc.homeScore === null || sc.homeScore === undefined || sc.homeScore === -1) return null;
+  if (sc.homeScore > sc.awayScore) return g.home;
+  if (sc.awayScore > sc.homeScore) return g.away;
+  return null;
+}
+
+function getPlayoffGames() {
+  const f = calcStandings(FRIENDLY);
+  const c = calcStandings(COMPETITIVE);
+  const seedsReady = rows => rows.filter(r => r.gp > 0).length >= 4;
+  const fReady = seedsReady(f);
+  const cReady = seedsReady(c);
+
+  function sf(id, label, date, rows, ready, iA, iB, division) {
+    return {
+      id, label, date, division, playoff: true, round: 'semifinal',
+      seedHome: '#' + (iA + 1), seedAway: '#' + (iB + 1),
+      home: ready && rows[iA] ? rows[iA].team : null,
+      away: ready && rows[iB] ? rows[iB].team : null
+    };
+  }
+
+  const compSf1 = sf('po-comp-sf1', 'Competitive Semifinal A', COMP_SF_DATE, c, cReady, 0, 3, COMPETITIVE);
+  const compSf2 = sf('po-comp-sf2', 'Competitive Semifinal B', COMP_SF_DATE, c, cReady, 1, 2, COMPETITIVE);
+  const frSf1 = sf('po-frnd-sf1', 'Friendly Semifinal A', FRIENDLY_SF_DATE, f, fReady, 0, 3, FRIENDLY);
+  const frSf2 = sf('po-frnd-sf2', 'Friendly Semifinal B', FRIENDLY_SF_DATE, f, fReady, 1, 2, FRIENDLY);
+
+  const compFinal = {
+    id: 'po-comp-final', label: 'Competitive Championship', date: CHAMP_DATE,
+    division: COMPETITIVE, playoff: true, round: 'final',
+    seedHome: 'SF A', seedAway: 'SF B',
+    home: winnerOfGame(compSf1), away: winnerOfGame(compSf2)
+  };
+  const frFinal = {
+    id: 'po-frnd-final', label: 'Friendly Championship', date: CHAMP_DATE,
+    division: FRIENDLY, playoff: true, round: 'final',
+    seedHome: 'SF A', seedAway: 'SF B',
+    home: winnerOfGame(frSf1), away: winnerOfGame(frSf2)
+  };
+
+  return {
+    compSf1, compSf2, frSf1, frSf2, compFinal, frFinal,
+    friendlySeeds: f.slice(0,4), competitiveSeeds: c.slice(0,4),
+    friendlyReady: fReady, competitiveReady: cReady,
+    all: [compSf1, compSf2, frSf1, frSf2, compFinal, frFinal]
+  };
+}
+
+function findGame(id) {
+  const g = ALL_GAMES.find(x => x.id === id);
+  if (g) return g;
+  return getPlayoffGames().all.find(x => x.id === id) || null;
+}
+
+function playoffMatchupBox(g, colorClass) {
+  const sc = getGameScore(g.id);
+  const has = sc && sc.homeScore !== null && sc.homeScore !== undefined && sc.homeScore !== -1;
+  const hw = has && sc.homeScore > sc.awayScore;
+  const aw = has && sc.awayScore > sc.homeScore;
+  const meta = sc && (sc.gameTime || sc.gameField)
+    ? `<div class="pm-meta">${sc.gameTime || ''}${sc.gameTime && sc.gameField ? ' &bull; ' : ''}${sc.gameField || ''}</div>` : '';
+  return `<div class="playoff-matchup-v">
+    <div class="pm-row ${hw ? 'winner' : ''}"><span class="playoff-seed ${colorClass}">${g.seedHome}</span><span class="pm-team ${g.home ? '' : 'tbd'}">${g.home || 'TBD'}</span><span class="pm-score">${has ? sc.homeScore : ''}</span></div>
+    <div class="pm-vs">vs</div>
+    <div class="pm-row ${aw ? 'winner' : ''}"><span class="playoff-seed ${colorClass}">${g.seedAway}</span><span class="pm-team ${g.away ? '' : 'tbd'}">${g.away || 'TBD'}</span><span class="pm-score">${has ? sc.awayScore : ''}</span></div>
+    ${meta}
+  </div>`;
+}
+
+function champBox(label, g) {
+  const sc = getGameScore(g.id);
+  const has = sc && sc.homeScore !== null && sc.homeScore !== undefined && sc.homeScore !== -1;
+  const hw = has && sc.homeScore > sc.awayScore;
+  const aw = has && sc.awayScore > sc.homeScore;
+  const champ = hw ? g.home : aw ? g.away : null;
+  const meta = sc && (sc.gameTime || sc.gameField)
+    ? `<div class="champ-meta">${sc.gameTime || ''}${sc.gameTime && sc.gameField ? ' &bull; ' : ''}${sc.gameField || ''}</div>` : '';
+  return `<div class="champ-game">
+    <div class="champ-game-label">${label}</div>
+    <div class="champ-row ${hw ? 'cw' : has ? 'cl' : ''}"><span class="champ-team ${g.home ? '' : 'tbd'}">${g.home || 'Semifinal Winner'}</span>${has ? `<span class="champ-score">${sc.homeScore}</span>` : ''}</div>
+    <div class="champ-vs">vs</div>
+    <div class="champ-row ${aw ? 'cw' : has ? 'cl' : ''}"><span class="champ-team ${g.away ? '' : 'tbd'}">${g.away || 'Semifinal Winner'}</span>${has ? `<span class="champ-score">${sc.awayScore}</span>` : ''}</div>
+    ${champ ? `<div class="champ-crown">&#127942; ${champ} &mdash; Champions</div>` : ''}
+    ${meta}
+  </div>`;
+}
+
+function renderPlayoffsHTML() {
+  const P = getPlayoffGames();
+  const qualifierList = (rows, ready, divLabel) => {
+    if (!ready) return `<div class="qualifier-div">${divLabel}</div><div class="qualifier-row"><span class="qualifier-team" style="color:var(--mid-gray);">Seeding pending</span></div>`;
+    return `<div class="qualifier-div">${divLabel}</div>` + rows.map((r,i) =>
+      `<div class="qualifier-row"><span class="qualifier-seed">${i+1}</span><span class="qualifier-team">${r.team}</span></div>`
+    ).join('');
+  };
+
+  return `
+  <div class="week-divider" style="margin-top:48px;"></div>
+  <div class="playoffs-section" style="margin-top:48px;">
+    <div class="section-eyebrow">Postseason</div>
+    <div class="section-heading">Playoffs &amp; Championship</div>
+    <div class="playoffs-grid">
+      <div class="playoff-card">
+        <div class="playoff-card-header red">
+          <div class="playoff-event">Competitive Semifinals</div>
+          <div class="playoff-date">Friday &bull; August 14, 2026</div>
+        </div>
+        <div class="playoff-matchups">
+          ${playoffMatchupBox(P.compSf1, 'red')}
+          ${playoffMatchupBox(P.compSf2, 'red')}
+        </div>
+      </div>
+      <div class="playoff-card">
+        <div class="playoff-card-header black">
+          <div class="playoff-event">Friendly Semifinals</div>
+          <div class="playoff-date">Sunday &bull; August 16, 2026</div>
+        </div>
+        <div class="playoff-matchups">
+          ${playoffMatchupBox(P.frSf1, 'black')}
+          ${playoffMatchupBox(P.frSf2, 'black')}
+        </div>
+      </div>
+      <div class="playoff-card">
+        <div class="playoff-card-header black">
+          <div class="playoff-event">Playoff Qualifiers</div>
+          <div class="playoff-date">Top 4 from each division</div>
+        </div>
+        <div class="playoff-matchups" style="gap:0;">
+          ${qualifierList(P.friendlySeeds, P.friendlyReady, 'Friendly Division')}
+          ${qualifierList(P.competitiveSeeds, P.competitiveReady, 'Competitive Division')}
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:#666;line-height:1.5;margin-top:10px;padding-top:8px;border-top:1px solid var(--light-gray);">Seeding by regular season record. Tiebreaker: run differential.</div>
+        </div>
+      </div>
+    </div>
+    <div class="champ-banner">
+      <div class="champ-eyebrow">The Main Event</div>
+      <div class="champ-title">Championship Sunday</div>
+      <div class="champ-date">August 23, 2026 &bull; Under the Lights</div>
+      <div class="champ-games">
+        ${champBox('Friendly Championship', P.frFinal)}
+        ${champBox('Competitive Championship', P.compFinal)}
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ======================================================================== */
+
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -705,52 +889,7 @@ function renderSchedule() {
     </div>`;
   });
 
-  html += `
-  <div class="week-divider" style="margin-top:48px;"></div>
-  <div class="playoffs-section" style="margin-top:48px;">
-    <div class="section-eyebrow">Postseason</div>
-    <div class="section-heading">Playoffs &amp; Championship</div>
-    <div class="playoffs-grid">
-      <div class="playoff-card">
-        <div class="playoff-card-header red">
-          <div class="playoff-event">Competitive Semifinals</div>
-          <div class="playoff-date">Friday &bull; August 14, 2026</div>
-        </div>
-        <div class="playoff-matchups">
-          <div class="playoff-matchup"><div class="playoff-seed red">#1</div><div class="playoff-vs-text">VS</div><div class="playoff-seed red">#4</div></div>
-          <div class="playoff-matchup"><div class="playoff-seed red">#2</div><div class="playoff-vs-text">VS</div><div class="playoff-seed red">#3</div></div>
-        </div>
-      </div>
-      <div class="playoff-card">
-        <div class="playoff-card-header black">
-          <div class="playoff-event">Friendly Semifinals</div>
-          <div class="playoff-date">Sunday &bull; August 16, 2026</div>
-        </div>
-        <div class="playoff-matchups">
-          <div class="playoff-matchup"><div class="playoff-seed black">#1</div><div class="playoff-vs-text">VS</div><div class="playoff-seed black">#4</div></div>
-          <div class="playoff-matchup"><div class="playoff-seed black">#2</div><div class="playoff-vs-text">VS</div><div class="playoff-seed black">#3</div></div>
-        </div>
-      </div>
-      <div class="playoff-card">
-        <div class="playoff-card-header black">
-          <div class="playoff-event">Playoff Qualifiers</div>
-          <div class="playoff-date">Top 4 from each division</div>
-        </div>
-        <div class="playoff-matchups" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:#555;line-height:1.6;">
-          Seeding by regular season record.<br>Tiebreaker: run differential.
-        </div>
-      </div>
-    </div>
-    <div class="champ-banner">
-      <div class="champ-eyebrow">The Main Event</div>
-      <div class="champ-title">Championship Sunday</div>
-      <div class="champ-date">August 23, 2026 &bull; Under the Lights</div>
-      <div class="champ-games">
-        <div class="champ-game"><div class="champ-game-label">Friendly Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
-        <div class="champ-game"><div class="champ-game-label">Competitive Championship</div><div class="champ-game-matchup">Semifinal Winner<br>vs<br>Semifinal Winner</div></div>
-      </div>
-    </div>
-  </div>`;
+  html += renderPlayoffsHTML();
 
   document.getElementById('schedule-container').innerHTML = html;
 }
@@ -824,15 +963,28 @@ function renderAdminGames() {
     byes.forEach(g => { html += `<div class="admin-bye-row">BYE: ${g.bye}</div>`; });
     html += `</div>`;
   });
+
+  const P = getPlayoffGames();
+  html += `<div class="admin-week"><div class="admin-week-label playoffs">Playoffs &amp; Championship</div>`;
+  P.all.forEach(g => {
+    const sc = getGameScore(g.id);
+    const hasScore = sc && sc.homeScore !== null && sc.homeScore !== -1;
+    const ready = !!(g.home && g.away);
+    const scoreStr = hasScore ? `${sc.homeScore} – ${sc.awayScore}` : (ready ? 'Click to enter score' : 'Waiting on results');
+    html += `<div class="admin-game-row ${hasScore?'played':''} ${ready?'':'locked'}" ${ready ? `onclick="openModal('${g.id}')"` : ''}><div class="admin-team">${g.home || 'TBD'}</div><div class="admin-vs">VS</div><div class="admin-team">${g.away || 'TBD'}</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;"><div class="admin-tag">${g.label}</div><div class="admin-score-display ${hasScore?'entered':''}">${scoreStr}</div>${sc && sc.gameTime ? `<div style="font-family:Oswald,sans-serif;font-size:11px;color:var(--gray);letter-spacing:1px;">${sc.gameTime}${sc.gameField ? ' &bull; '+sc.gameField : ''}</div>` : ''}</div></div>`;
+  });
+  html += `</div>`;
+
   document.getElementById('admin-games-list').innerHTML = html;
 }
 
 function openModal(gameId) {
-  const g = ALL_GAMES.find(x => x.id === gameId);
+  const g = findGame(gameId);
   if (!g) return;
+  if (g.playoff && (!g.home || !g.away)) return;
   currentGameId = gameId;
   document.getElementById('modal-title').textContent = 'Game Details';
-  document.getElementById('modal-subtitle').textContent = `Week ${g.week} • ${g.date}`;
+  document.getElementById('modal-subtitle').textContent = g.playoff ? `${g.label} • ${g.date}` : `Week ${g.week} • ${g.date}`;
   document.getElementById('modal-home').textContent = g.home;
   document.getElementById('modal-away').textContent = g.away;
   const sc = getGameScore(gameId);
